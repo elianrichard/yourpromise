@@ -4,7 +4,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Apercu"],
+        sans: ["Neue Montreal"],
         serif: ["Bad Script", "cursive"],
       },
       colors: {
