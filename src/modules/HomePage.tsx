@@ -1,3 +1,4 @@
+import HomeDeco from "@/components/HomeDeco";
 import { type AnimationControls, motion, type Variants } from "framer-motion";
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
 const HomePage = ({ animateControl }: Props) => {
   const containerVar: Variants = {
     show: {
-      transition: { staggerChildren: 1.5, delayChildren: 0.3 },
+      transition: { staggerChildren: 1.5, delayChildren: 1 },
     },
   };
   const childrenVar: Variants = {
@@ -23,6 +24,7 @@ const HomePage = ({ animateControl }: Props) => {
       animate={animateControl}
       className="flex h-screen w-full flex-col items-center justify-center gap-8 overflow-hidden px-14"
     >
+      <HomeDeco />
       <motion.h2
         variants={childrenVar}
         transition={childrenTransition}

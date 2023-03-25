@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useAnimationControls } from "framer-motion";
 
 import NavBar from "@/components/NavBar";
-import BgDecoration from "@/components/BgDecoration";
 import HomePage from "@/modules/HomePage";
 import StoryPage from "@/modules/StoryPage";
 
@@ -29,7 +28,6 @@ const Home: NextPage = () => {
       <div className="relative w-screen overflow-x-hidden">
         <NavBar animateControl={navControl} />
         <main className="relative flex h-full w-full flex-col bg-mainBlue">
-          <BgDecoration />
           <div className="z-10">
             <HomePage animateControl={homeControl} />
             <StoryPage />
