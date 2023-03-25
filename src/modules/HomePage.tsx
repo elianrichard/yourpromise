@@ -8,40 +8,40 @@ interface Props {
 const HomePage = ({ animateControl }: Props) => {
   const containerVar: Variants = {
     show: {
-      transition: { staggerChildren: 1.5, delayChildren: 1 },
+      opacity: 1,
+      transition: { staggerChildren: 1.25, delayChildren: 1 },
     },
+    exit: { opacity: 0 },
+    reshow: { opacity: 1 },
   };
   const childrenVar: Variants = {
     hidden: { opacity: 0 },
-    show: { opacity: 1 },
+    show: { opacity: 1, transition: { bounce: 0, duration: 0.5 } },
   };
-  const childrenTransition = { bounce: 0, duration: 0.5 };
 
   return (
     <motion.div
       variants={containerVar}
       initial="hidden"
       animate={animateControl}
-      className="flex h-screen w-full flex-col items-center justify-center gap-8 overflow-hidden px-14"
+      transition={{ ease: "easeOut", duration: 0.2 }}
+      className="pointer-events-none flex h-screen w-full select-none flex-col items-center justify-center gap-8 overflow-hidden px-14"
     >
       <HomeDeco />
       <motion.h2
         variants={childrenVar}
-        transition={childrenTransition}
         className="text-lg font-light uppercase tracking-[0.3em]"
       >
         A CSUN CTVA Thesis Film
       </motion.h2>
       <motion.h1
         variants={childrenVar}
-        transition={childrenTransition}
         className="font-serif text-[90px] uppercase"
       >
         Your Promise
       </motion.h1>
       <motion.h2
         variants={childrenVar}
-        transition={childrenTransition}
         className="font-serif text-xl font-light tracking-widest"
       >
         Directed by Haoqian &quot;Eric&quot; He & Ricardo Medina

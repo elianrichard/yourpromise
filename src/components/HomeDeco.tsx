@@ -17,7 +17,6 @@ const HomeDeco = () => {
         transition={{
           ease: "circOut",
           duration: 3,
-          // delay: 6,
         }}
         onAnimationComplete={() => {
           void baloonKidControl.start({ y: 40 });
