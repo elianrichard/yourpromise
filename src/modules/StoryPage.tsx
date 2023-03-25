@@ -26,7 +26,7 @@ const StoryPage = () => {
   // const isInViewThree = useInView(paragraphThree, { amount: "some" });
 
   return (
-    <div className="relative z-30 flex w-full flex-col items-center justify-center px-20">
+    <div className="relative z-30 flex w-full flex-col items-center justify-center px-20 pt-20">
       <div className="fixed top-0 left-0 z-10 h-screen w-screen px-20 pt-20">
         <motion.div
           variants={containerVar}
@@ -86,11 +86,10 @@ const StoryPage = () => {
         onLeave={() => {
           setIsShowText(false);
         }}
-        bottomOffset={10}
       />
 
       <motion.div
-        className="mb-[500px] flex h-screen flex-col items-start justify-center gap-10 pt-20"
+        className="mb-[500px] flex h-[75vh] flex-col items-start justify-center gap-10 pt-20"
         // onViewportEnter={() => {
         //   setText({ title: "Our Story", paragraph: 1 });
         // }}
@@ -119,7 +118,7 @@ const StoryPage = () => {
       />
 
       <motion.div
-        className="mb-[500px] flex h-screen flex-col items-start justify-center gap-10 pt-20"
+        className="mb-[500px] flex h-[75vh] flex-col items-start justify-center gap-10 pt-20"
         // onViewportEnter={() => {
         //   setText({ title: "Our Inpiration", paragraph: 2 });
         // }}
@@ -148,7 +147,7 @@ const StoryPage = () => {
       />
 
       <motion.div
-        className="flex h-screen flex-col items-start justify-center gap-10 pt-20"
+        className="flex h-[75vh] flex-col items-start justify-center gap-10 pt-20"
         // onViewportEnter={() => {
         //   setText({ title: "Our Inpiration", paragraph: 3 });
         // }}
