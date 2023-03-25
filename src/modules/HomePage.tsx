@@ -1,35 +1,50 @@
-import Image from "next/image";
-import BalloonKidImg from "@/assets/images/kid-balloon.png";
-import FlowerBoxImg from "@/assets/images/flower.png";
+import { type AnimationControls, motion, type Variants } from "framer-motion";
 
-const HomePage = () => {
+interface Props {
+  animateControl: AnimationControls;
+}
+
+const HomePage = ({ animateControl }: Props) => {
+  const containerVar: Variants = {
+    show: {
+      transition: { staggerChildren: 1.5, delayChildren: 0.3 },
+    },
+  };
+  const childrenVar: Variants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  };
+  const childrenTransition = { bounce: 0, duration: 0.5 };
+
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center gap-8 overflow-hidden bg-mainBlue px-14">
-      {/* BG DECORATION */}
-      <div className="fixed top-0 left-0 h-screen w-screen">
-        <div className="absolute top-0 left-0 h-full w-full bg-[url(https://grainy-gradients.vercel.app/noise.svg)] opacity-10" />
-        <Image
-          src={BalloonKidImg}
-          alt="kid floating with a balloon"
-          width={500}
-          className="absolute -right-20 top-10"
-        />
-        <Image
-          src={FlowerBoxImg}
-          alt="flower and gun in a box"
-          width={500}
-          className="absolute left-0 bottom-0"
-        />
-      </div>
-      {/* END BG DECORATION */}
-      <h2 className="text-lg font-light uppercase tracking-[0.3em]">
+    <motion.div
+      variants={containerVar}
+      initial="hidden"
+      animate={animateControl}
+      className="flex h-screen w-full flex-col items-center justify-center gap-8 overflow-hidden px-14"
+    >
+      <motion.h2
+        variants={childrenVar}
+        transition={childrenTransition}
+        className="text-lg font-light uppercase tracking-[0.3em]"
+      >
         A CSUN CTVA Thesis Film
-      </h2>
-      <h1 className="font-serif text-[90px] uppercase">Your Promise</h1>
-      <h2 className="font-serif text-xl font-light tracking-widest">
+      </motion.h2>
+      <motion.h1
+        variants={childrenVar}
+        transition={childrenTransition}
+        className="font-serif text-[90px] uppercase"
+      >
+        Your Promise
+      </motion.h1>
+      <motion.h2
+        variants={childrenVar}
+        transition={childrenTransition}
+        className="font-serif text-xl font-light tracking-widest"
+      >
         Directed by Haoqian &quot;Eric&quot; He & Ricardo Medina
-      </h2>
-    </div>
+      </motion.h2>
+    </motion.div>
   );
 };
 export default HomePage;

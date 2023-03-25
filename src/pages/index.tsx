@@ -1,12 +1,24 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
+import { useAnimationControls } from "framer-motion";
 
 import NavBar from "@/components/NavBar";
+import BgDecoration from "@/components/BgDecoration";
 import HomePage from "@/modules/HomePage";
-// import BgDecoration from "@/components/BgDecoration";
 import StoryPage from "@/modules/StoryPage";
 
 const Home: NextPage = () => {
+  const homeControl = useAnimationControls();
+  const navControl = useAnimationControls();
+
+  useEffect(() => {
+    void (async () => {
+      await homeControl.start("show");
+      void navControl.start("show");
+    })();
+  }, [homeControl, navControl]);
+
   return (
     <>
       <Head>
@@ -14,12 +26,14 @@ const Home: NextPage = () => {
         <meta name="description" content="YourPromise Official Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="relative w-screen">
-        <NavBar />
-        {/* <BgDecoration /> */}
-        <main className="relative z-10 flex h-full w-full flex-col overflow-x-hidden">
-          <HomePage />
-          <StoryPage />
+      <div className="relative w-screen overflow-x-hidden">
+        <NavBar animateControl={navControl} />
+        <main className="relative flex h-full w-full flex-col bg-mainBlue">
+          <BgDecoration />
+          <div className="z-10">
+            <HomePage animateControl={homeControl} />
+            <StoryPage />
+          </div>
         </main>
       </div>
     </>
