@@ -1,47 +1,82 @@
-import { motion, type Variants } from "framer-motion";
-import { useState } from "react";
-import { Waypoint } from "react-waypoint";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useInView,
+} from "framer-motion";
+import { useMemo, useRef } from "react";
 
 const StoryPage = () => {
-  const [text, setText] = useState<{
-    title: string;
-    paragraph: number;
-  }>({
-    title: "Our Story",
-    paragraph: 1,
+  const paragraphOne = useRef(null);
+  const paragraphTwo = useRef(null);
+  const paragraphThree = useRef(null);
+  const paragraphTwoThree = useRef(null);
+  const isInViewOne = useInView(paragraphOne);
+  const isInViewTwo = useInView(paragraphTwo);
+  const isInViewThree = useInView(paragraphThree);
+
+  const text = useMemo(() => {
+    if (isInViewOne) return { title: "Our Story", paragraph: 1 };
+    else if (isInViewTwo) return { title: "Our Inspiration", paragraph: 2 };
+    else if (isInViewThree) return { title: "Our Inspiration", paragraph: 3 };
+    return { title: "Our Story", paragraph: 1 };
+  }, [isInViewOne, isInViewThree, isInViewTwo]);
+
+  const { scrollYProgress: useParOneScroll } = useScroll({
+    target: paragraphOne,
+    offset: ["start end", "end center"],
+    smooth: 1,
+  });
+  const { scrollYProgress: useParTwoScroll } = useScroll({
+    target: paragraphTwo,
+    offset: ["start end", "end center"],
+    smooth: 1,
+  });
+  const { scrollYProgress: useParThreeScroll } = useScroll({
+    target: paragraphThree,
+    offset: ["start end", "end center"],
+    smooth: 1,
+  });
+  const { scrollYProgress: useParTwoThreeScroll } = useScroll({
+    target: paragraphTwoThree,
+    offset: ["start end", "end center"],
+    smooth: 1,
   });
 
-  const [isShowText, setIsShowText] = useState<boolean>(false);
-
-  const containerVar: Variants = {
-    show: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
-
-  // const paragraphOne = useRef(null);
-  // const paragraphTwo = useRef(null);
-  // const paragraphThree = useRef(null);
-  // const isInViewOne = useInView(paragraphOne, { amount: 1 });
-  // const isInViewTwo = useInView(paragraphTwo, { amount: 1 });
-  // const isInViewThree = useInView(paragraphThree, { amount: "some" });
+  const springedOpacityOneTitle = useSpring(
+    useTransform(useParOneScroll, [0, 0.1, 0.6, 1], [0, 1, 1, 0])
+  );
+  const springedOpacityOne = useSpring(
+    useTransform(useParOneScroll, [0, 0.1, 0.4, 0.6, 1], [0, 0, 1, 1, 0])
+  );
+  const springedOpacityTwo = useSpring(
+    useTransform(useParTwoScroll, [0, 0.1, 0.4, 0.6, 1], [0, 0, 1, 1, 0])
+  );
+  const springedOpacityThree = useSpring(
+    useTransform(useParThreeScroll, [0, 0.4, 0.6, 1], [0, 1, 1, 0])
+  );
+  const springedOpacityTwoThree = useSpring(
+    useTransform(useParTwoThreeScroll, [0, 0.05, 0.8, 1], [0, 1, 1, 0])
+  );
 
   return (
     <div className="relative z-30 flex w-full flex-col items-center justify-center px-20 pt-20">
-      <div className="fixed top-0 left-0 z-10 h-screen w-screen px-20 pt-20">
-        <motion.div
-          variants={containerVar}
-          initial={"hidden"}
-          animate={isShowText ? "show" : "hidden"}
-          transition={{
-            type: "spring",
-            duration: 1,
-          }}
-          className="flex h-full w-full flex-col items-start justify-center gap-10"
-        >
-          <h2 className="font-serif text-3xl font-bold">{text.title}</h2>
-          <p className="text-5xl leading-normal">
-            {text.paragraph === 1 ? (
-              <>
+      {/* FLOATING TEXT */}
+      <div className="fixed top-0 left-0 z-10 h-screen w-screen">
+        <div className="flex h-full w-full flex-col items-start justify-start gap-10 px-20 pt-[25vh]">
+          {text.paragraph === 1 ? (
+            <>
+              <motion.h2
+                className="font-serif text-3xl font-bold"
+                style={{ opacity: springedOpacityOneTitle }}
+              >
+                {text.title}
+              </motion.h2>
+              <motion.p
+                className="text-5xl leading-normal"
+                style={{ opacity: springedOpacityOne }}
+              >
                 <span className="italic">David</span>, an elementary school boy,{" "}
                 <span className="italic">died in a school shooting</span> after
                 believing his last promise was broken. He is{" "}
@@ -49,9 +84,20 @@ const StoryPage = () => {
                 of his life, to <span className="italic">reflect</span> on those
                 around him, and to find <span className="italic">closure</span>{" "}
                 with his family.
-              </>
-            ) : text.paragraph === 2 ? (
-              <>
+              </motion.p>
+            </>
+          ) : text.paragraph === 2 ? (
+            <>
+              <motion.h2
+                className="font-serif text-3xl font-bold"
+                style={{ opacity: springedOpacityTwoThree }}
+              >
+                {text.title}
+              </motion.h2>
+              <motion.p
+                className="text-5xl leading-normal"
+                style={{ opacity: springedOpacityTwo }}
+              >
                 During Eric&apos;s first year in Cal State Northridge in 2018, a{" "}
                 <span className="italic">lockdown</span> was placed due to a{" "}
                 <span className="italic">
@@ -60,9 +106,20 @@ const StoryPage = () => {
                 . Eric and his classmates that lived in the dorms were asked to
                 keep their outings to a minimum and they started transitioning
                 to online classes that week.
-              </>
-            ) : (
-              <>
+              </motion.p>
+            </>
+          ) : (
+            <>
+              <motion.h2
+                className="font-serif text-3xl font-bold"
+                style={{ opacity: springedOpacityTwoThree }}
+              >
+                {text.title}
+              </motion.h2>
+              <motion.p
+                className="text-5xl leading-normal"
+                style={{ opacity: springedOpacityThree }}
+              >
                 Luckily for Eric,{" "}
                 <span className="italic">it was a false alarm</span>. Eric took
                 his experience for inspiration and decides to tell the story of
@@ -72,99 +129,36 @@ const StoryPage = () => {
                 <span className="italic">unnecessary violence</span>. An issue
                 that is <span className="italic">prevalent</span> in our current
                 society.
-              </>
-            )}
-          </p>
-        </motion.div>
+              </motion.p>
+            </>
+          )}
+        </div>
       </div>
-
-      <Waypoint
-        onEnter={() => {
-          setText({ title: "Our Story", paragraph: 1 });
-          setIsShowText(true);
-        }}
-        onLeave={() => {
-          setIsShowText(false);
-        }}
-      />
+      {/* END FLOATING TEXT */}
 
       <motion.div
-        className="mb-[500px] flex h-[75vh] flex-col items-start justify-center gap-10 pt-20"
-        // onViewportEnter={() => {
-        //   setText({ title: "Our Story", paragraph: 1 });
-        // }}
-        // viewport={{ amount: 0.8 }}
-        // ref={paragraphOne}
-      >
-        {/* <h2 className="font-serif text-3xl font-bold">Our Story</h2>
-        <p className="text-5xl leading-normal">
-          <span className="italic">David</span>, an elementary school boy,{" "}
-          <span className="italic">died in a school shooting</span> after
-          believing his last promise was broken. He is{" "}
-          <span className="italic">given a chance to revisit</span> parts of his
-          life, to <span className="italic">reflect</span> on those around him,
-          and to find <span className="italic">closure</span> with his family.
-        </p> */}
-      </motion.div>
-
-      <Waypoint
-        onEnter={() => {
-          setText({ title: "Our Insipration", paragraph: 2 });
-          setIsShowText(true);
-        }}
-        onLeave={() => {
-          setIsShowText(false);
-        }}
+        className="my-[50vh] h-[200vh] w-full"
+        // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
+        ref={paragraphOne}
       />
 
-      <motion.div
-        className="mb-[500px] flex h-[75vh] flex-col items-start justify-center gap-10 pt-20"
-        // onViewportEnter={() => {
-        //   setText({ title: "Our Inpiration", paragraph: 2 });
-        // }}
-        // viewport={{ amount: 0.8 }}
-        // ref={paragraphTwo}
+      <div
+        className="my-[50vh] flex w-full flex-col"
+        // style={{ backgroundColor: "rgb(37, 99, 235)" }} // UNCOMMENT TO DEBUG
+        ref={paragraphTwoThree}
       >
-        {/* <h2 className="font-serif text-3xl font-bold">Our Inspiration</h2>
-        <p className="text-5xl leading-normal">
-          During Eric’s first year in Cal State Northridge in 2018, a{" "}
-          <span className="italic">lockdown</span> was placed due to a{" "}
-          <span className="italic">potential threat of a School Shooter</span>.
-          Eric and his classmates that lived in the dorms were asked to keep
-          their outings to a minimum and they started transitioning to online
-          classes that week.
-        </p> */}
-      </motion.div>
+        <div
+          className="mb-[50vh] h-[200vh] w-full"
+          // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
+          ref={paragraphTwo}
+        />
 
-      <Waypoint
-        onEnter={() => {
-          setText({ title: "Our Insipration", paragraph: 3 });
-          setIsShowText(true);
-        }}
-        onLeave={() => {
-          setIsShowText(false);
-        }}
-      />
-
-      <motion.div
-        className="flex h-[75vh] flex-col items-start justify-center gap-10 pt-20"
-        // onViewportEnter={() => {
-        //   setText({ title: "Our Inpiration", paragraph: 3 });
-        // }}
-        // viewport={{ amount: 0.8 }}
-        // ref={paragraphThree}
-      >
-        {/* <h2 className="font-serif text-3xl font-bold">Our Inspiration</h2>
-        <p className="text-5xl leading-normal">
-          Luckily for Eric, <span className="italic">it was a false alarm</span>
-          . Eric took his experience for inspiration and decides to tell the
-          story of many who&apos;ve experienced{" "}
-          <span className="italic">the fear or tragedy of losing</span> loved
-          ones and friends to{" "}
-          <span className="italic">unnecessary violence</span>. An issue that is{" "}
-          <span className="italic">prevalent</span> in our current society.
-        </p> */}
-      </motion.div>
+        <div
+          className="mt-[50vh] h-[200vh] w-full"
+          // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
+          ref={paragraphThree}
+        />
+      </div>
     </div>
   );
 };
