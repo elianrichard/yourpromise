@@ -1,3 +1,5 @@
+import { useMemo, useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -5,13 +7,16 @@ import {
   useSpring,
   useInView,
 } from "framer-motion";
-import { useMemo, useRef } from "react";
+
+import StoryBgImg from "@/assets/images/bg-story.png";
+import InspirationBgImg from "@/assets/images/bg-inspiration.png";
 
 const StoryPage = () => {
   const paragraphOne = useRef(null);
   const paragraphTwo = useRef(null);
   const paragraphThree = useRef(null);
   const paragraphTwoThree = useRef(null);
+  const paragraphAll = useRef(null);
   const isInViewOne = useInView(paragraphOne);
   const isInViewTwo = useInView(paragraphTwo);
   const isInViewThree = useInView(paragraphThree);
@@ -43,12 +48,20 @@ const StoryPage = () => {
     offset: ["start end", "end center"],
     smooth: 1,
   });
+  const { scrollYProgress: useParAllScroll } = useScroll({
+    target: paragraphAll,
+    offset: ["start end", "end center"],
+    smooth: 1,
+  });
 
   const springedOpacityOneTitle = useSpring(
-    useTransform(useParOneScroll, [0, 0.1, 0.6, 1], [0, 1, 1, 0])
+    useTransform(useParOneScroll, [0, 0.2, 0.3, 0.6, 1], [0, 0, 1, 1, 0])
+  );
+  const springedOpacityOneBg = useSpring(
+    useTransform(useParOneScroll, [0, 0.6, 1], [1, 1, 0])
   );
   const springedOpacityOne = useSpring(
-    useTransform(useParOneScroll, [0, 0.1, 0.4, 0.6, 1], [0, 0, 1, 1, 0])
+    useTransform(useParOneScroll, [0, 0.3, 0.4, 0.6, 1], [0, 0, 1, 1, 0])
   );
   const springedOpacityTwo = useSpring(
     useTransform(useParTwoScroll, [0, 0.1, 0.4, 0.6, 1], [0, 0, 1, 1, 0])
@@ -57,14 +70,30 @@ const StoryPage = () => {
     useTransform(useParThreeScroll, [0, 0.4, 0.6, 1], [0, 1, 1, 0])
   );
   const springedOpacityTwoThree = useSpring(
-    useTransform(useParTwoThreeScroll, [0, 0.05, 0.8, 1], [0, 1, 1, 0])
+    useTransform(useParTwoThreeScroll, [0, 0.1, 0.8, 1], [0, 1, 1, 0])
+  );
+  const springedOpacityAll = useSpring(
+    useTransform(useParAllScroll, [0, 0.05, 0.9, 1], [0, 1, 1, 0])
   );
 
   return (
     <div className="relative z-30 flex w-full flex-col items-center justify-center px-20 pt-20">
       {/* FLOATING TEXT */}
       <div className="fixed top-0 left-0 z-10 h-screen w-screen">
-        <div className="flex h-full w-full flex-col items-start justify-start gap-10 px-20 pt-[25vh]">
+        <div className="relative z-10 flex h-full w-full flex-col items-start justify-start gap-10 px-20 pt-[calc(50vh-200px)]">
+          <motion.div
+            className="absolute top-0 left-0 -z-10 h-full w-full"
+            style={{ opacity: springedOpacityAll }}
+          >
+            <div className="absolute top-0 left-0 z-10 h-full w-full bg-black/70" />
+            <motion.div
+              className="absolute top-0 left-0 h-full w-full"
+              style={{ opacity: springedOpacityOneBg }}
+            >
+              <Image src={StoryBgImg} alt="story background image" />
+            </motion.div>
+            <Image src={InspirationBgImg} alt="inspiration background image" />
+          </motion.div>
           {text.paragraph === 1 ? (
             <>
               <motion.h2
@@ -136,28 +165,34 @@ const StoryPage = () => {
       </div>
       {/* END FLOATING TEXT */}
 
-      <motion.div
-        className="my-[50vh] h-[200vh] w-full"
-        // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
-        ref={paragraphOne}
-      />
-
       <div
-        className="my-[50vh] flex w-full flex-col"
-        // style={{ backgroundColor: "rgb(37, 99, 235)" }} // UNCOMMENT TO DEBUG
-        ref={paragraphTwoThree}
+        className="my-[50vh] flex w-full flex-col gap-[100vh]"
+        // style={{ backgroundColor: "rgb(22, 163, 74)" }} // UNCOMMENT TO DEBUG
+        ref={paragraphAll}
       >
         <div
-          className="mb-[50vh] h-[200vh] w-full"
+          className="h-[200vh] w-full"
           // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
-          ref={paragraphTwo}
+          ref={paragraphOne}
         />
 
         <div
-          className="mt-[50vh] h-[200vh] w-full"
-          // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
-          ref={paragraphThree}
-        />
+          className="flex w-full flex-col gap-[100vh]"
+          // style={{ backgroundColor: "rgb(37, 99, 235)" }} // UNCOMMENT TO DEBUG
+          ref={paragraphTwoThree}
+        >
+          <div
+            className="h-[200vh] w-full"
+            // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
+            ref={paragraphTwo}
+          />
+
+          <div
+            className="h-[200vh] w-full"
+            // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
+            ref={paragraphThree}
+          />
+        </div>
       </div>
     </div>
   );
