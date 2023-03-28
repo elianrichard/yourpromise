@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
+
+import { Waypoint } from "react-waypoint";
 import { useAnimationControls } from "framer-motion";
 
 import NavBar from "@/components/NavBar";
+
 import HomePage from "@/modules/HomePage";
 import StoryPage from "@/modules/StoryPage";
-
-import { Waypoint } from "react-waypoint";
+import VideoPage from "@/modules/VideoPage";
+import DonationPage from "@/modules/DonationPage";
 
 const Home: NextPage = () => {
   const homeControl = useAnimationControls();
@@ -29,7 +32,10 @@ const Home: NextPage = () => {
       </Head>
       <div className="relative w-screen">
         <NavBar animateControl={navControl} />
-        <main className="relative flex h-full w-full flex-col overflow-y-hidden bg-mainBlue">
+        {/* <Scroll /> */}
+        <main
+          className={`relative flex h-full w-full flex-col overflow-y-hidden bg-mainBlue`}
+        >
           <HomePage animateControl={homeControl} />
           <Waypoint
             onEnter={() => void homeControl.start("exit")}
@@ -43,6 +49,8 @@ const Home: NextPage = () => {
             bottomOffset={10}
           />
           <StoryPage />
+          <VideoPage />
+          <DonationPage />
         </main>
       </div>
     </>

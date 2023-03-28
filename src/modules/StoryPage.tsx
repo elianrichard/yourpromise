@@ -77,10 +77,11 @@ const StoryPage = () => {
   );
 
   return (
-    <div className="relative z-30 flex w-full flex-col items-center justify-center px-20 pt-20">
+    <div className="pointer-events-none relative z-30 flex w-full flex-col items-center justify-center pt-20">
       {/* FLOATING TEXT */}
       <div className="fixed top-0 left-0 z-10 h-screen w-screen">
         <div className="relative z-10 flex h-full w-full flex-col items-start justify-start gap-10 px-20 pt-[calc(50vh-200px)]">
+          {/* BACKGROUND IMAGE */}
           <motion.div
             className="absolute top-0 left-0 -z-10 h-full w-full"
             style={{ opacity: springedOpacityAll }}
@@ -166,12 +167,12 @@ const StoryPage = () => {
       {/* END FLOATING TEXT */}
 
       <div
-        className="my-[50vh] flex w-full flex-col gap-[100vh]"
+        className="mty-[50vh] relative flex w-full flex-col gap-[100vh]"
         // style={{ backgroundColor: "rgb(22, 163, 74)" }} // UNCOMMENT TO DEBUG
         ref={paragraphAll}
       >
         <div
-          className="h-[200vh] w-full"
+          className="h-[200vh] w-full bg-mainBlue"
           // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
           ref={paragraphOne}
         />
