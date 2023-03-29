@@ -32,9 +32,8 @@ const Home: NextPage = () => {
       </Head>
       <div className="relative w-screen">
         <NavBar animateControl={navControl} />
-        {/* <Scroll /> */}
         <main
-          className={`relative flex h-full w-full flex-col overflow-y-hidden bg-mainBlue`}
+          className={`relative flex h-full w-full flex-col overflow-y-hidden bg-mainBlue bg-[url('/bg-squares.svg')] bg-repeat-y bg-blend-multiply`}
         >
           <HomePage animateControl={homeControl} />
           <Waypoint
@@ -49,8 +48,10 @@ const Home: NextPage = () => {
             bottomOffset={10}
           />
           <StoryPage />
-          <VideoPage />
-          <DonationPage />
+          <div className="-mt-[30vh] flex h-full w-full flex-col ">
+            <VideoPage />
+            <DonationPage />
+          </div>
         </main>
       </div>
     </>

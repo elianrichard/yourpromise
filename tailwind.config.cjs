@@ -10,6 +10,7 @@ const config = {
       colors: {
         mainBlue: "#1B92A7",
         mainYellow: "#FF9933",
+        secondaryYellow: "#FEE665",
       },
     },
   },

@@ -10,7 +10,7 @@ const VideoPage = () => {
 
   return (
     <div
-      className="relative -mt-[30vh] flex h-screen w-screen items-center justify-center pt-20"
+      className="relative flex h-screen w-screen items-center justify-center pt-20"
       ref={containerVideo}
     >
       <div className="flex h-full w-full">
@@ -29,7 +29,7 @@ const VideoPage = () => {
               volume={1}
               playing={isVideoVisible}
               muted={false}
-              controls={false}
+              controls={true}
               width={"100%"}
               height={"100%"}
               loop

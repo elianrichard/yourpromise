@@ -172,7 +172,7 @@ const StoryPage = () => {
         ref={paragraphAll}
       >
         <div
-          className="h-[200vh] w-full bg-mainBlue"
+          className="h-[200vh] w-full"
           // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
           ref={paragraphOne}
         />
