@@ -1,22 +1,33 @@
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 import DonationPaper1 from "@/assets/svgs/DonationPaper1";
 import DonationPaper2 from "@/assets/svgs/DonationPaper2";
 import DonationPaper3 from "@/assets/svgs/DonationPaper3";
 import DonationWallet from "@/assets/svgs/DonationWallet";
-import { motion } from "framer-motion";
+
+import GunFlowerImg from "@/assets/images/gun-flower.png";
 
 const DonationPage = () => {
   return (
     <div className="z-10 flex h-screen w-screen items-center justify-center pt-20">
       <div className="flex h-full w-full items-center justify-center">
         <motion.div
-          className="relative mr-40 flex h-fit w-60 select-none flex-col items-center justify-center gap-5"
+          className="gap- relative mr-40 flex h-fit w-60 select-none flex-col items-center justify-center"
           whileHover={{
             scale: 1.05,
             transition: { ease: "easeOut", duration: 0.2 },
           }}
         >
-          <div className="absolute top-1/2 left-1/2 -z-10 w-[450px] -translate-x-[50%] -translate-y-[50%]">
+          <div className="absolute top-1/2 left-1/2 -z-10 w-[450px] -translate-x-[50%] -translate-y-[calc(50%-1px)] ">
             <DonationPaper1 />
+            <div className="absolute -left-10 -bottom-12 -rotate-[10deg]">
+              <Image
+                src={GunFlowerImg}
+                alt="image of gun and flower"
+                width={350}
+              />
+            </div>
           </div>
           <p className="-rotate-[6deg] self-start font-serif text-xl font-bold text-black">
             Notes:
