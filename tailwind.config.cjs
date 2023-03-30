@@ -12,6 +12,8 @@ const config = {
         mainYellow: "#FF9933",
         secondaryYellow: "#FEE665",
         mainPink: "#FF729F",
+        mainLime: "#E8FCC2",
+        mainCream: "#DAE4C5",
       },
     },
   },

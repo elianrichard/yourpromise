@@ -11,6 +11,7 @@ import HomePage from "@/modules/HomePage";
 import StoryPage from "@/modules/StoryPage";
 import VideoPage from "@/modules/VideoPage";
 import DonationPage from "@/modules/DonationPage";
+import GoalsPage from "@/modules/GoalsPage";
 
 const Home: NextPage = () => {
   const homeControl = useAnimationControls();
@@ -48,10 +49,11 @@ const Home: NextPage = () => {
             bottomOffset={10}
           />
           <StoryPage />
-          <div className="-mt-[30vh] flex h-full w-full flex-col ">
-            <VideoPage />
-            <DonationPage />
-          </div>
+          {/* <div className="-mt-[30vh] flex h-full w-full flex-col "> */}
+          <VideoPage />
+          <DonationPage />
+          <GoalsPage />
+          {/* </div> */}
         </main>
       </div>
     </>
