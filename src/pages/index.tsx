@@ -54,6 +54,7 @@ const Home: NextPage = () => {
           <DonationPage />
           <GoalsPage />
           {/* </div> */}
+          <div className="h-screen w-screen" />
         </main>
       </div>
     </>

@@ -14,6 +14,7 @@ const config = {
         mainPink: "#FF729F",
         mainLime: "#E8FCC2",
         mainCream: "#DAE4C5",
+        mainSage: "#D0F4EA",
       },
     },
   },
