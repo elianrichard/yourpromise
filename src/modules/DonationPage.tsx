@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import DonationPaper1 from "@/assets/svgs/DonationPaper1";
 import DonationPaper2 from "@/assets/svgs/DonationPaper2";
 import DonationPaper3 from "@/assets/svgs/DonationPaper3";
-import DonationWallet from "@/assets/svgs/DonationWallet";
+import DonationWallet2 from "@/assets/svgs/DonationWallet2";
 
 import GunFlowerImg from "@/assets/images/gun-flower.png";
 
@@ -44,7 +44,7 @@ const DonationPage = () => {
         </motion.div>
         <div className="flex h-full items-center justify-center">
           <motion.a
-            className="w-[450px] cursor-pointer"
+            className="w-[475px] cursor-pointer"
             whileHover={{
               scale: 1.1,
               transition: { type: "spring", bounce: 0.6 },
@@ -52,7 +52,8 @@ const DonationPage = () => {
             href="https://google.com"
             target={"_blank"}
           >
-            <DonationWallet />
+            {/* <DonationWallet /> */}
+            <DonationWallet2 />
           </motion.a>
         </div>
         <div className="ml-40 flex h-full flex-col items-center justify-center">
