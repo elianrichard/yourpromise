@@ -1,5 +1,13 @@
+import { useRef } from "react";
 import HomeDeco from "@/components/HomeDeco";
-import { type AnimationControls, motion, type Variants } from "framer-motion";
+import {
+  type AnimationControls,
+  motion,
+  type Variants,
+  useTransform,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 
 interface Props {
   animateControl: AnimationControls;
@@ -11,13 +19,21 @@ const HomePage = ({ animateControl }: Props) => {
       opacity: 1,
       transition: { staggerChildren: 1.25, delayChildren: 1 },
     },
-    exit: { opacity: 0 },
-    reshow: { opacity: 1 },
   };
   const childrenVar: Variants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { bounce: 0, duration: 0.5 } },
   };
+
+  const containerRef = useRef(null);
+  const { scrollYProgress: useContainerScroll } = useScroll({
+    target: containerRef,
+    offset: ["start", "end center"],
+    smooth: 1,
+  });
+  const useSpringedOpacity = useSpring(
+    useTransform(useContainerScroll, [0, 0.2], [1, 0])
+  );
 
   return (
     <motion.div
@@ -26,6 +42,8 @@ const HomePage = ({ animateControl }: Props) => {
       animate={animateControl}
       transition={{ ease: "easeOut", duration: 0.2 }}
       className="pointer-events-none flex h-screen w-full select-none flex-col items-center justify-center gap-8 overflow-hidden px-14"
+      ref={containerRef}
+      style={{ opacity: useSpringedOpacity }}
     >
       <HomeDeco />
       <motion.h2

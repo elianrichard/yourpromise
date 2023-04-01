@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import { Waypoint } from "react-waypoint";
 import { useAnimationControls } from "framer-motion";
 
 import NavBar from "@/components/NavBar";
@@ -37,17 +36,6 @@ const Home: NextPage = () => {
           className={`relative flex h-full w-full flex-col overflow-y-hidden bg-mainBlue bg-[url('/bg-squares.svg')] bg-repeat-y bg-blend-multiply`}
         >
           <HomePage animateControl={homeControl} />
-          <Waypoint
-            onEnter={() => void homeControl.start("exit")}
-            onLeave={({ currentPosition }) => {
-              if (currentPosition === "above") {
-                void homeControl.start("exit");
-              } else {
-                void homeControl.start("reshow");
-              }
-            }}
-            bottomOffset={10}
-          />
           <StoryPage />
           {/* <div className="-mt-[30vh] flex h-full w-full flex-col "> */}
           <VideoPage />
