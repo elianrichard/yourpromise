@@ -15,7 +15,13 @@ import LoveIcon from "@/assets/svgs/icons/LoveIcon";
 import CircleIcon from "@/assets/svgs/icons/CircleIcon";
 import TriangleIcon from "@/assets/svgs/icons/TriangleIcon";
 import StarIcon from "@/assets/svgs/icons/StarIcon";
+
 import GoalsTitleLines from "@/assets/svgs/lines/GoalTitleLine";
+import LightningIcon from "@/assets/svgs/icons/LightningIcon";
+import TrophyIcon from "@/assets/svgs/icons/TrophyIcon";
+import PlaneIcon from "@/assets/svgs/icons/PlaneIcon";
+import PlanetIcon from "@/assets/svgs/icons/PlanetIcon";
+import DoubleLoveIcon from "@/assets/svgs/icons/DoubleLoveIcon";
 
 const GoalsPage = () => {
   return (
@@ -33,17 +39,34 @@ const GoalsPage = () => {
         <div className="absolute top-0 right-0 h-full bg-black shadow-xl">
           <SignBoardVertical />
         </div>
+        <div className="absolute top-0 left-1/2 w-28 -translate-x-40 translate-y-5 text-transparent">
+          <PlaneIcon strokeColor="#1B92A7" />
+        </div>
+        <div className="absolute bottom-0 left-1/2 w-32 -translate-y-10 -translate-x-20 text-transparent">
+          <PlanetIcon strokeColor="#E5C726" />
+        </div>
+        <div className="absolute top-0 left-1/2 w-20 translate-y-24 text-mainPink">
+          <DoubleLoveIcon />
+        </div>
         <div className="my-5 flex flex-col items-start justify-center gap-12 text-2xl leading-loose">
           <div className="relative mt-2 -rotate-[7deg] text-5xl">
             <div className="absolute left-0 -z-10 w-60 translate-y-4 -translate-x-5 text-mainPink">
               <GoalsTitleLines />
             </div>
+            <div className="absolute left-[100%] top-0 w-24 translate-x-12 -translate-y-4 rotate-[10deg] text-[#E5C726]">
+              <TrophyIcon />
+            </div>
             <p>Our Goal</p>
           </div>
-          <p className="pl-10">
+          <div className="pl-10">
             Our goal is to{" "}
-            <span className="bg-mainYellow/80 px-2">raise $35,000</span> to fund
-            the production of this film, from{" "}
+            <div className="relative inline-block bg-mainYellow/80 px-2">
+              raise $35,000{" "}
+              <span className="absolute right-0 top-0 w-12 translate-x-[calc(100%-10px)] -translate-y-[100%] text-transparent">
+                <LightningIcon strokeColor="#FF9933" />
+              </span>
+            </div>{" "}
+            to fund the production of this film, from{" "}
             <span className="bg-mainPink/80 px-2">pre-production to post.</span>{" "}
             Also, donations will help us submit the finished film to various
             festivals. We intend to showcase our{" "}
@@ -55,7 +78,7 @@ const GoalsPage = () => {
             <span className="bg-mainSage px-2">
               next generation of filmmakers.
             </span>
-          </p>
+          </div>
         </div>
         <div className="flex h-full w-full flex-col items-center justify-between gap-5">
           <div className="relative -translate-y-4 rotate-[3deg] bg-mainSage px-10 py-3 text-2xl shadow-[0px_4px_10px_rgba(0,0,0,0.25)]">

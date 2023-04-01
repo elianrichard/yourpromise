@@ -1,6 +1,6 @@
 import React from "react";
 
-const Ellipse4 = () => {
+const CircleIcon = () => {
   return (
     <svg
       viewBox="0 0 34 34"
@@ -14,4 +14,4 @@ const Ellipse4 = () => {
   );
 };
 
-export default Ellipse4;
+export default CircleIcon;
