@@ -12,6 +12,7 @@ import VideoPage from "@/modules/VideoPage";
 import DonationPage from "@/modules/DonationPage";
 import GoalsPage from "@/modules/GoalsPage";
 import CrewPage from "@/modules/CrewPage";
+import CrewListPage from "@/modules/CrewListPage";
 
 const Home: NextPage = () => {
   const homeControl = useAnimationControls();
@@ -33,15 +34,17 @@ const Home: NextPage = () => {
       </Head>
       <div className="relative w-screen">
         <NavBar animateControl={navControl} />
-        <main
-          className={`relative flex h-full w-full flex-col overflow-y-hidden bg-mainBlue bg-[url('/bg-squares.svg')] bg-repeat-y bg-blend-multiply`}
-        >
-          <HomePage animateControl={homeControl} />
-          <StoryPage />
-          <VideoPage />
-          <DonationPage />
-          <GoalsPage />
-          <CrewPage />
+        <main className="relative h-full w-full overflow-y-hidden">
+          <div className="fixed top-0 left-0 -z-50 h-screen w-full bg-mainBlue bg-[url('/bg-squares.svg')] bg-repeat-y bg-blend-multiply" />
+          <div className={`relative z-10 flex h-full w-full flex-col`}>
+            <HomePage animateControl={homeControl} />
+            <StoryPage />
+            <VideoPage />
+            <DonationPage />
+            <GoalsPage />
+            <CrewPage />
+            <CrewListPage />
+          </div>
         </main>
       </div>
     </>

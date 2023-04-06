@@ -19,6 +19,7 @@ const config = {
       },
       boxShadow: {
         lightBlack: "0px 4px 10px rgba(0,0,0,0.25)",
+        mediumBlack: "0px 5px 15px rgba(0, 0, 0, 0.35)",
         heavyBlack: "7px 7px 26px 7px rgba(0,0,0,0.25)",
       },
       dropShadow: {
