@@ -15,6 +15,14 @@ const config = {
         mainLime: "#E8FCC2",
         mainCream: "#DAE4C5",
         mainSage: "#D0F4EA",
+        paleWhite: "#EDEDED",
+      },
+      boxShadow: {
+        lightBlack: "0px 4px 10px rgba(0,0,0,0.25)",
+        heavyBlack: "7px 7px 26px 7px rgba(0,0,0,0.25)",
+      },
+      dropShadow: {
+        lightBlack: "0px 4px 4px rgba(0,0,0,0.3)",
       },
     },
   },

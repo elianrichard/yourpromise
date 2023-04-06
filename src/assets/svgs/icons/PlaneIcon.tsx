@@ -2,11 +2,7 @@ import React from "react";
 
 const PlaneIcon = ({ strokeColor }: { strokeColor: string }) => {
   return (
-    <svg
-      fill="currentColor"
-      viewBox="0 0 105 109"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg fill="none" viewBox="0 0 105 109" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1.6438 73.4363C4.43377 70.5674 8.23033 68.299 11.5137 65.9541C15.3069 63.2444 19.0653 60.5443 22.8956 57.9239C25.4162 56.2007 28.0212 54.5351 30.4286 52.65C31.9953 51.4204 34.2425 50.1962 35.5069 48.9316"
         stroke={strokeColor}

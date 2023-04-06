@@ -11,10 +11,10 @@ import Goals6 from "@/assets/svgs/goals/Goals6";
 import SignBoardHorizon from "@/assets/svgs/SignBoardHorizon";
 import SignBoardVertical from "@/assets/svgs/SignBoardVertical";
 
-import LoveIcon from "@/assets/svgs/icons/LoveIcon";
-import CircleIcon from "@/assets/svgs/icons/CircleIcon";
-import TriangleIcon from "@/assets/svgs/icons/TriangleIcon";
-import StarIcon from "@/assets/svgs/icons/StarIcon";
+import LoveIcon from "@/assets/svgs/icons/solid/LoveIcon";
+import CircleIcon from "@/assets/svgs/icons/solid/CircleIcon";
+import TriangleIcon from "@/assets/svgs/icons/solid/TriangleIcon";
+import StarIcon from "@/assets/svgs/icons/solid/StarIcon";
 
 import BubbleText from "@/assets/svgs/BubbleText";
 import GoalsTitleLines from "@/assets/svgs/lines/GoalTitleLine";
@@ -54,7 +54,7 @@ const GoalsCard = ({
       onMouseLeave={() => void bubbleAnimControl.start("initial")}
     >
       <div
-        className={`relative flex h-32 w-32 items-center justify-center rounded-lg border-8 border-solid border-white shadow-[0px_4px_10px_rgba(0,0,0,0.25)] ${
+        className={`relative flex h-32 w-32 items-center justify-center rounded-lg border-8 border-solid border-white shadow-lightBlack ${
           padding || "p-7"
         } ${additionalClass}`}
       >
@@ -65,7 +65,12 @@ const GoalsCard = ({
           transition={{ ease: "easeOut", duration: 0.25 }}
           className={`pointer-events-none absolute z-40 flex aspect-square w-44 origin-bottom-right items-center justify-center px-4 ${bubbleClasses}`}
         >
-          <p className="z-10 text-center">{textBubble}</p>
+          <p
+            className="z-10 text-center font-medium"
+            style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
+          >
+            {textBubble}
+          </p>
           <div className="absolute top-0 left-0 w-full translate-y-3">
             <BubbleText />
           </div>
@@ -140,11 +145,11 @@ const GoalsPage = () => {
         {/* RIGHT CONTENT */}
         <div className="flex h-full w-full flex-col items-center justify-between gap-5">
           {/* TITLE */}
-          <div className="relative -translate-y-4 rotate-[3deg] bg-mainSage px-10 py-3 text-2xl shadow-[0px_4px_10px_rgba(0,0,0,0.25)]">
-            <div className="absolute top-0 left-0 w-14 -translate-x-[50%] -translate-y-[calc(50%-7px)] -rotate-[15deg] text-mainPink drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+          <div className="relative -translate-y-4 rotate-[3deg] bg-mainSage px-10 py-3 text-2xl shadow-lightBlack">
+            <div className="absolute top-0 left-0 w-14 -translate-x-[50%] -translate-y-[calc(50%-7px)] -rotate-[15deg] text-mainPink drop-shadow-lightBlack">
               <LoveIcon />
             </div>
-            <div className="absolute bottom-0 right-0 w-10 translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+            <div className="absolute bottom-0 right-0 w-10 translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-lightBlack">
               <CircleIcon />
             </div>
             Your Donations will be used for the following:
@@ -156,10 +161,10 @@ const GoalsPage = () => {
               textBubble="Location (permits, insurance, transportation, etc.)"
               bubbleClasses="bottom-[calc(100%-30px)] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-lightBlack">
                 <LoveIcon />
               </div>
-              <div className="absolute bottom-0 left-0 w-10 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute bottom-0 left-0 w-10 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-lightBlack">
                 <CircleIcon />
               </div>
               <Goals1 />
@@ -169,7 +174,7 @@ const GoalsPage = () => {
               textBubble="Casting (casting director, talent, extras, studio teacher, etc.)"
               bubbleClasses="bottom-[25px] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 left-1/2 w-10 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainYellow drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 left-1/2 w-10 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainYellow drop-shadow-lightBlack">
                 <CircleIcon />
               </div>
               <Goals2 />
@@ -179,7 +184,7 @@ const GoalsPage = () => {
               textBubble="Rentals (camera, audio, grip and electric, expendables, etc.)"
               bubbleClasses="bottom-[calc(100%-30px)] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-secondaryYellow drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-secondaryYellow drop-shadow-lightBlack">
                 <StarIcon />
               </div>
               <Goals3 />
@@ -189,7 +194,7 @@ const GoalsPage = () => {
               textBubble="Art (production design, wardrobe, hair, makeup, etc.)"
               bubbleClasses="bottom-[30px] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 left-0 w-12 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainSage drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 left-0 w-12 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainSage drop-shadow-lightBlack">
                 <CircleIcon />
               </div>
               <Goals4 />
@@ -200,10 +205,10 @@ const GoalsPage = () => {
               textBubble="Catering and Craft Services (to feed our hardworking cast and crew!)"
               bubbleClasses="bottom-[calc(100%-40px)] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-14 translate-x-[50%] -translate-y-[50%] rotate-[20deg] text-secondaryYellow drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 right-0 w-14 translate-x-[50%] -translate-y-[50%] rotate-[20deg] text-secondaryYellow drop-shadow-lightBlack">
                 <TriangleIcon />
               </div>
-              <div className="absolute bottom-0 left-0 w-12 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute bottom-0 left-0 w-12 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-lightBlack">
                 <CircleIcon />
               </div>
               <Goals5 />
@@ -213,10 +218,10 @@ const GoalsPage = () => {
               textBubble="COVID Enforcement (PPE, cleaning supplies, testing, etc.)"
               bubbleClasses="bottom-[calc(100%-60px)] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainYellow drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainYellow drop-shadow-lightBlack">
                 <CircleIcon />
               </div>
-              <div className="absolute bottom-0 left-0 w-16 -translate-x-[50%] translate-y-[50%] rotate-[5deg] text-mainPink drop-shadow-[0px_4px_4px_rgba(0,0,0,0.3)]">
+              <div className="absolute bottom-0 left-0 w-16 -translate-x-[50%] translate-y-[50%] rotate-[5deg] text-mainPink drop-shadow-lightBlack">
                 <LoveIcon />
               </div>
               <Goals6 />
