@@ -57,7 +57,7 @@ const CrewListPage = () => {
         ))}
         {/* DECORATION */}
         <div className="absolute top-0 left-0 -z-10 h-full w-full">
-          <div className="absolute translate-x-10 transition-all duration-200 ease-out hover:rotate-[10deg] hover:scale-110">
+          <div className="absolute translate-x-10 -translate-y-20 transition-all duration-200 ease-out hover:rotate-[10deg] hover:scale-110">
             <Image src={Sticker1Img} alt="sticker decoration" width={150} />
           </div>
           <Image
@@ -82,7 +82,7 @@ const CrewListPage = () => {
             src={Sticker3Img}
             alt="sticker decoration"
             width={150}
-            className="absolute right-0 bottom-0 rotate-[20deg] transition-all duration-200 ease-out hover:-rotate-[5deg] hover:scale-110"
+            className="absolute right-0 bottom-0 translate-y-10 rotate-[20deg] transition-all duration-200 ease-out hover:-rotate-[5deg] hover:scale-110"
           />
         </div>
       </div>

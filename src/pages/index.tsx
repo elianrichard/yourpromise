@@ -13,6 +13,7 @@ import DonationPage from "@/modules/DonationPage";
 import GoalsPage from "@/modules/GoalsPage";
 import CrewPage from "@/modules/CrewPage";
 import CrewListPage from "@/modules/CrewListPage";
+import MerchPage from "@/modules/MerchPage";
 
 const Home: NextPage = () => {
   const homeControl = useAnimationControls();
@@ -44,6 +45,7 @@ const Home: NextPage = () => {
             <GoalsPage />
             <CrewPage />
             <CrewListPage />
+            <MerchPage />
           </div>
         </main>
       </div>
