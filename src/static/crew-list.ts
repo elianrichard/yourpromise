@@ -1,4 +1,4 @@
-import CrewImg from "@/assets/images/crew-1.png";
+import CrewImg from "@/assets/images/crew-1.jpg";
 
 export const headList = [
   {
