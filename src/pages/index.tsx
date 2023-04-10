@@ -38,9 +38,9 @@ const Home: NextPage = () => {
         <main className="relative h-full w-full overflow-y-hidden">
           <div className="fixed top-0 left-0 -z-50 h-screen w-full bg-mainBlue bg-[url('/bg-squares.svg')] bg-repeat-y bg-blend-multiply" />
           <div className={`relative z-10 flex h-full w-full flex-col`}>
-            {/* <HomePage animateControl={homeControl} /> */}
+            <HomePage animateControl={homeControl} />
             <StoryPage />
-            {/* <VideoPage /> */}
+            <VideoPage />
             <DonationPage />
             <GoalsPage />
             <CrewPage />
