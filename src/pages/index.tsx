@@ -2,6 +2,7 @@ import { type MutableRefObject, useEffect, useRef } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 import { useAnimationControls, useInView } from "framer-motion";
 
@@ -51,6 +52,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="relative w-screen max-w-[100%]">
+        <div className="absolute -z-[1000] h-full w-full opacity-0">
+          <Image
+            src={"/snapshot.png"}
+            alt="snapshot image web"
+            fill
+            className="h-auto w-96"
+            priority
+          />
+        </div>
         <NavBar animateControl={navControl} />
         <main className="relative h-full w-full">
           <div className="fixed top-0 left-0 -z-50 h-screen w-full bg-mainBlue bg-[url('/bg-squares.png')] bg-cover bg-blend-multiply" />
