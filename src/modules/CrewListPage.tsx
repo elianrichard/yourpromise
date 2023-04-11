@@ -26,7 +26,11 @@ const CrewCard = ({
           <div className="absolute flex h-full w-full flex-col items-end bg-paleWhite px-7 pt-7 shadow-mediumBlack">
             <div className="relative w-full flex-1">
               <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.35)]" />
-              <Image src={image} alt={name} fill />
+              <Image
+                src={image}
+                alt={name}
+                className="h-full w-full object-cover"
+              />
             </div>
             <p className="py-6 font-serif text-xl text-black">{name}</p>
           </div>
@@ -58,31 +62,31 @@ const CrewListPage = () => {
         {/* DECORATION */}
         <div className="absolute top-0 left-0 -z-10 h-full w-full">
           <div className="absolute translate-x-10 -translate-y-20 transition-all duration-200 ease-out hover:rotate-[10deg] hover:scale-110">
-            <Image src={Sticker1Img} alt="sticker decoration" width={150} />
+            <Image
+              src={Sticker1Img}
+              alt="sticker decoration"
+              className="h-auto w-[150px]"
+            />
           </div>
           <Image
             src={Sticker2Img}
             alt="sticker decoration"
-            width={150}
-            className="absolute right-0 -translate-x-10 transition-all duration-200 ease-out hover:rotate-[20deg] hover:scale-110"
+            className="absolute right-0 h-auto w-[150px] -translate-x-10 transition-all duration-200 ease-out hover:rotate-[20deg] hover:scale-110"
           />
           <Image
             src={Sticker5Img}
             alt="sticker decoration"
-            width={200}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out hover:rotate-[10deg] hover:scale-110"
+            className="absolute left-1/2 top-1/2 h-auto w-[200px] -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out hover:rotate-[10deg] hover:scale-110"
           />
           <Image
             src={Sticker4Img}
             alt="sticker decoration"
-            width={100}
-            className="absolute left-0 bottom-0 rotate-[10deg] transition-all duration-200 ease-out hover:rotate-[30deg] hover:scale-110"
+            className="absolute left-0 bottom-0 h-auto w-[100px] rotate-[10deg] transition-all duration-200 ease-out hover:rotate-[30deg] hover:scale-110"
           />
           <Image
             src={Sticker3Img}
             alt="sticker decoration"
-            width={150}
-            className="absolute right-0 bottom-0 translate-y-10 rotate-[20deg] transition-all duration-200 ease-out hover:-rotate-[5deg] hover:scale-110"
+            className="absolute right-0 bottom-0 h-auto w-[150px] translate-y-10 rotate-[20deg] transition-all duration-200 ease-out hover:-rotate-[5deg] hover:scale-110"
           />
         </div>
       </div>

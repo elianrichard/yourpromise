@@ -1,6 +1,7 @@
 import { type MutableRefObject, useEffect, useRef } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
 import { useAnimationControls, useInView } from "framer-motion";
 
@@ -14,8 +15,11 @@ import GoalsPage from "@/modules/GoalsPage";
 import CrewPage from "@/modules/CrewPage";
 import CrewListPage from "@/modules/CrewListPage";
 import MerchPage from "@/modules/MerchPage";
-import BTSPage from "@/modules/BTSPage";
 import MailPage from "@/modules/MailPage";
+
+const BTSPage = dynamic(() => import("@/modules/BTSPage"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
   const homeControl = useAnimationControls();
