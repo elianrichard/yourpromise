@@ -53,7 +53,7 @@ const BTSPage = () => {
     (v) =>
       `${wrap(
         offset - cardWidth,
-        -cardWidth * (PromoImgs.length + 1) + width - offset,
+        -cardWidth * (SugarImgs.length + 1) + width - offset,
         v
       )}px`
   );
@@ -62,7 +62,7 @@ const BTSPage = () => {
     (v) =>
       `${wrap(
         offset - cardWidth,
-        -cardWidth * (SugarImgs.length + 1) + width - offset,
+        -cardWidth * (PromoImgs.length + 1) + width - offset,
         v
       )}px`
   );
