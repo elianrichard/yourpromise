@@ -73,7 +73,7 @@ const BTSPage = () => {
   });
 
   return (
-    <div className="my-20 w-full">
+    <div className="my-20 w-full" id="bts">
       <div className="top-0 flex w-full flex-col items-center justify-between">
         <div className="flex h-full w-full flex-col justify-center gap-10 overflow-x-hidden">
           <p className="px-10 text-5xl">Promotional Video BTS</p>

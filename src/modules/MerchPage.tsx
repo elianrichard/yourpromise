@@ -89,7 +89,10 @@ const MerchPage = () => {
   ];
 
   return (
-    <div className="flex h-fit w-full items-center justify-center overflow-x-hidden px-20 py-32">
+    <div
+      className="flex h-fit w-full items-center justify-center overflow-x-hidden px-20 py-32"
+      id="merch"
+    >
       <div className="relative w-full max-w-[1500px] bg-mainPink p-5 text-mainPink shadow-heavyBlack">
         <div className="relative z-0 h-full w-full bg-mainSage">
           {/* DECORATION */}
@@ -166,9 +169,14 @@ const MerchPage = () => {
               </div>
             </div>
             <div className="relative flex w-fit items-center justify-center">
-              <p className="flex cursor-pointer justify-center rounded-xl border-4 border-solid border-mainPink bg-secondaryYellow px-10 py-2 text-3xl font-bold shadow-lightBlack transition-all duration-200 ease-out hover:px-16">
+              <a
+                href="https://google.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex cursor-pointer justify-center rounded-xl border-4 border-solid border-mainPink bg-secondaryYellow px-10 py-2 text-3xl font-bold shadow-lightBlack transition-all duration-200 ease-out hover:px-16"
+              >
                 SHOP NOW!
-              </p>
+              </a>
             </div>
           </div>
         </div>

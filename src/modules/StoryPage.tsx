@@ -80,7 +80,7 @@ const StoryPage = () => {
     <div className="pointer-events-none relative z-30 flex w-full flex-col items-center justify-center pt-20">
       {/* FLOATING TEXT */}
       <div className="fixed top-0 left-0 z-10 h-screen w-screen">
-        <div className="relative z-10 flex h-full w-full flex-col items-start justify-start gap-10 px-20 pt-[calc(50vh-200px)]">
+        <div className="relative z-10 flex h-full w-full items-center justify-center px-20 pt-[calc(50vh-200px)]">
           {/* BACKGROUND IMAGE */}
           <motion.div
             className="absolute top-0 left-0 -z-10 h-full w-full"
@@ -95,73 +95,75 @@ const StoryPage = () => {
             </motion.div>
             <Image src={InspirationBgImg} alt="inspiration background image" />
           </motion.div>
-          {text.paragraph === 1 ? (
-            <>
-              <motion.h2
-                className="font-serif text-3xl font-bold"
-                style={{ opacity: springedOpacityOneTitle }}
-              >
-                {text.title}
-              </motion.h2>
-              <motion.p
-                className="text-5xl leading-normal"
-                style={{ opacity: springedOpacityOne }}
-              >
-                <span className="italic">David</span>, an elementary school boy,{" "}
-                <span className="italic">died in a school shooting</span> after
-                believing his last promise was broken. He is{" "}
-                <span className="italic">given a chance to revisit</span> parts
-                of his life, to <span className="italic">reflect</span> on those
-                around him, and to find <span className="italic">closure</span>{" "}
-                with his family.
-              </motion.p>
-            </>
-          ) : text.paragraph === 2 ? (
-            <>
-              <motion.h2
-                className="font-serif text-3xl font-bold"
-                style={{ opacity: springedOpacityTwoThree }}
-              >
-                {text.title}
-              </motion.h2>
-              <motion.p
-                className="text-5xl leading-normal"
-                style={{ opacity: springedOpacityTwo }}
-              >
-                During Eric&apos;s first year in Cal State Northridge in 2018, a{" "}
-                <span className="italic">lockdown</span> was placed due to a{" "}
-                <span className="italic">
-                  potential threat of a School Shooter
-                </span>
-                . Eric and his classmates that lived in the dorms were asked to
-                keep their outings to a minimum and they started transitioning
-                to online classes that week.
-              </motion.p>
-            </>
-          ) : (
-            <>
-              <motion.h2
-                className="font-serif text-3xl font-bold"
-                style={{ opacity: springedOpacityTwoThree }}
-              >
-                {text.title}
-              </motion.h2>
-              <motion.p
-                className="text-5xl leading-normal"
-                style={{ opacity: springedOpacityThree }}
-              >
-                Luckily for Eric,{" "}
-                <span className="italic">it was a false alarm</span>. Eric took
-                his experience for inspiration and decides to tell the story of
-                many who&apos;ve experienced{" "}
-                <span className="italic">the fear or tragedy of losing</span>{" "}
-                loved ones and friends to{" "}
-                <span className="italic">unnecessary violence</span>. An issue
-                that is <span className="italic">prevalent</span> in our current
-                society.
-              </motion.p>
-            </>
-          )}
+          <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-start gap-10">
+            {text.paragraph === 1 ? (
+              <>
+                <motion.h2
+                  className="font-serif text-3xl font-bold"
+                  style={{ opacity: springedOpacityOneTitle }}
+                >
+                  {text.title}
+                </motion.h2>
+                <motion.p
+                  className="text-5xl leading-normal"
+                  style={{ opacity: springedOpacityOne }}
+                >
+                  <span className="italic">David</span>, an elementary school
+                  boy, <span className="italic">died in a school shooting</span>{" "}
+                  after believing his last promise was broken. He is{" "}
+                  <span className="italic">given a chance to revisit</span>{" "}
+                  parts of his life, to <span className="italic">reflect</span>{" "}
+                  on those around him, and to find{" "}
+                  <span className="italic">closure</span> with his family.
+                </motion.p>
+              </>
+            ) : text.paragraph === 2 ? (
+              <>
+                <motion.h2
+                  className="font-serif text-3xl font-bold"
+                  style={{ opacity: springedOpacityTwoThree }}
+                >
+                  {text.title}
+                </motion.h2>
+                <motion.p
+                  className="text-5xl leading-normal"
+                  style={{ opacity: springedOpacityTwo }}
+                >
+                  During Eric&apos;s first year in Cal State Northridge in 2018,
+                  a <span className="italic">lockdown</span> was placed due to a{" "}
+                  <span className="italic">
+                    potential threat of a School Shooter
+                  </span>
+                  . Eric and his classmates that lived in the dorms were asked
+                  to keep their outings to a minimum and they started
+                  transitioning to online classes that week.
+                </motion.p>
+              </>
+            ) : (
+              <>
+                <motion.h2
+                  className="font-serif text-3xl font-bold"
+                  style={{ opacity: springedOpacityTwoThree }}
+                >
+                  {text.title}
+                </motion.h2>
+                <motion.p
+                  className="text-5xl leading-normal"
+                  style={{ opacity: springedOpacityThree }}
+                >
+                  Luckily for Eric,{" "}
+                  <span className="italic">it was a false alarm</span>. Eric
+                  took his experience for inspiration and decides to tell the
+                  story of many who&apos;ve experienced{" "}
+                  <span className="italic">the fear or tragedy of losing</span>{" "}
+                  loved ones and friends to{" "}
+                  <span className="italic">unnecessary violence</span>. An issue
+                  that is <span className="italic">prevalent</span> in our
+                  current society.
+                </motion.p>
+              </>
+            )}
+          </div>
         </div>
       </div>
       {/* END FLOATING TEXT */}
@@ -170,6 +172,7 @@ const StoryPage = () => {
         className="mty-[50vh] relative flex w-full flex-col gap-[100vh]"
         // style={{ backgroundColor: "rgb(22, 163, 74)" }} // UNCOMMENT TO DEBUG
         ref={paragraphAll}
+        id="story"
       >
         <div
           className="h-[200vh] w-full"

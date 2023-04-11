@@ -74,9 +74,12 @@ const NavLink = ({
       variants={variants}
       transition={transition}
     >
-      <span className="transition-all duration-200 ease-in-out group-hover:font-bold group-hover:text-black">
+      <a
+        href={`#${label.toLowerCase()}`}
+        className="transition-all duration-200 ease-in-out group-hover:font-bold group-hover:text-black"
+      >
         {label}
-      </span>
+      </a>
     </motion.li>
   );
 };
