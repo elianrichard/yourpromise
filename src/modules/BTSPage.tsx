@@ -88,7 +88,7 @@ const BTSPage = () => {
             </motion.div>
           </div>
           <p className="self-end px-10 text-5xl">Sugar Fix BTS</p>
-          <div className="relative h-72 overflow-x-scroll bg-black px-5 text-black scrollbar-hide">
+          <div className="relative h-72 overflow-x-hidden bg-black px-5 text-black scrollbar-hide">
             <motion.div
               className="absolute flex h-full w-fit gap-8"
               style={{ right: x_sugar }}
