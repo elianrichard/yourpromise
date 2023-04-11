@@ -10,7 +10,7 @@ const VideoPage = () => {
 
   return (
     <div
-      className="relative flex h-screen w-screen items-center justify-center pt-20"
+      className="relative flex h-screen w-full items-center justify-center pt-20"
       ref={containerVideo}
     >
       <div className="flex h-full w-full">

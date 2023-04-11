@@ -42,7 +42,7 @@ const Decoration = () => {
 
 const CrewPage = () => {
   return (
-    <div className="relative mt-20 flex h-screen w-screen items-center justify-center pt-20">
+    <div className="relative mt-20 flex h-screen w-full items-center justify-center pt-20">
       <div className="relative h-[550px] w-[1000px] rotate-[2deg] text-black ">
         <Decoration />
         <motion.div

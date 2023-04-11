@@ -27,7 +27,7 @@ const config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
 
 module.exports = config;

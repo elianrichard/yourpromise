@@ -83,7 +83,7 @@ const GoalsCard = ({
 
 const GoalsPage = () => {
   return (
-    <div className="z-10 flex w-screen items-center justify-center px-20 pt-20 font-serif text-black">
+    <div className="z-10 flex w-full items-center justify-center px-20 pt-20 font-serif text-black">
       <div className="relative grid min-h-[550px] w-full grid-cols-2 gap-x-4 bg-mainCream px-20 py-14">
         {/* DECORATION  */}
         <div className="absolute top-0 left-0 h-full w-full">

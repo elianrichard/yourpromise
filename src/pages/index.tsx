@@ -14,6 +14,7 @@ import GoalsPage from "@/modules/GoalsPage";
 import CrewPage from "@/modules/CrewPage";
 import CrewListPage from "@/modules/CrewListPage";
 import MerchPage from "@/modules/MerchPage";
+import BTSPage from "@/modules/BTSPage";
 
 const Home: NextPage = () => {
   const homeControl = useAnimationControls();
@@ -33,9 +34,9 @@ const Home: NextPage = () => {
         <meta name="description" content="YourPromise Official Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="relative w-screen">
+      <div className="relative w-screen max-w-[100%]">
         <NavBar animateControl={navControl} />
-        <main className="relative h-full w-full overflow-y-hidden">
+        <main className="relative h-full w-full">
           <div className="fixed top-0 left-0 -z-50 h-screen w-full bg-mainBlue bg-[url('/bg-squares.svg')] bg-repeat-y bg-blend-multiply" />
           <div className={`relative z-10 flex h-full w-full flex-col`}>
             <HomePage animateControl={homeControl} />
@@ -46,6 +47,10 @@ const Home: NextPage = () => {
             <CrewPage />
             <CrewListPage />
             <MerchPage />
+            <BTSPage />
+            <div className="flex h-[100vh] w-full items-center justify-center">
+              CONTACT PAGE
+            </div>
           </div>
         </main>
       </div>

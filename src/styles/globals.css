@@ -107,7 +107,7 @@
 @layer base {
   html,
   body {
-    @apply overflow-x-hidden text-white;
+    @apply text-white;
     -webkit-font-smoothing: subpixel-antialiased;
   }
 }

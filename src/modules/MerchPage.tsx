@@ -9,7 +9,6 @@ import Merch3Img from "@/assets/images/merch/merch-3.png";
 
 import EggIcon from "@/assets/svgs/icons/fun/EggIcon";
 import FlowerIcon from "@/assets/svgs/icons/fun/FlowerIcon";
-import LeafIcon from "@/assets/svgs/icons/fun/LeafIcon";
 import TrophyIcon from "@/assets/svgs/icons/TrophyIcon";
 import AtomIcon from "@/assets/svgs/icons/AtomIcon";
 import CalendarIcon from "@/assets/svgs/icons/CalendarIcon";
@@ -59,6 +58,18 @@ const MerchCard = ({ images }: { images: Array<StaticImageData> }) => {
             alt="merch img"
             className="absolute w-full"
           />
+          <div className="absolute right-0 bottom-0 flex gap-1 pr-2 pb-2">
+            {images.map((_el, i) => (
+              <div
+                key={i}
+                className={`aspect-square w-3 rounded-full border-2 border-solid border-mainPink ${
+                  i === imgNumber % images.length
+                    ? "bg-mainYellow"
+                    : "bg-transparent"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -93,19 +104,19 @@ const MerchPage = () => {
             />
           </div>
           <div className="absolute top-0 left-0 -z-10 h-full w-full">
-            <div className="absolute top-0 left-0 w-20 translate-x-28 translate-y-5 -rotate-[20deg] text-mainPink">
+            <div className="absolute bottom-0 left-0 w-20 translate-x-96 -translate-y-10 -rotate-[20deg] text-mainPink">
               <TrophyIcon />
             </div>
             <div className="absolute top-1/2 left-1/2  w-20 -translate-x-60 -translate-y-36 rotate-[10deg] text-mainPink">
               <PlanetIcon strokeColor={"#FF729F"} />
             </div>
-            <div className="absolute bottom-0 left-0 w-32 translate-x-52 -translate-y-10  rotate-[0deg]">
+            <div className="absolute bottom-0 left-0 w-32 translate-x-40 -translate-y-10  rotate-[0deg]">
               <PlaneIcon strokeColor="#FF729F" />
             </div>
-            <div className="absolute bottom-0 right-0 w-16 -translate-x-10 -translate-y-10 rotate-[0deg]">
+            <div className="absolute bottom-0 right-0 w-16 -translate-x-40 -translate-y-14 rotate-[0deg]">
               <CalendarIcon strokeColor="#FF729F" />
             </div>
-            <div className="absolute bottom-0 right-0 w-24 -translate-x-80 -translate-y-20 -rotate-[45deg] text-mainPink">
+            <div className="absolute bottom-0 right-0 w-24 -translate-x-80 -translate-y-10 -rotate-[45deg] text-mainPink">
               <AtomIcon />
             </div>
           </div>
@@ -133,7 +144,7 @@ const MerchPage = () => {
                   <div className="w-full">
                     <MerchBubble1 />
                   </div>
-                  <p className="absolute top-1/2 left-1/2 w-full -translate-x-[calc(50%-20px)] -translate-y-[calc(50%+10px)] px-14 text-2xl">
+                  <p className="absolute top-1/2 left-1/2 w-full -translate-x-[calc(50%-20px)] -translate-y-[calc(50%+10px)] px-14 text-3xl">
                     Get your hands on the exclusive{" "}
                     <b>Your Promise Merchandise</b> and be a part of our
                     film-making journey!
@@ -158,14 +169,6 @@ const MerchPage = () => {
               <p className="flex cursor-pointer justify-center rounded-xl border-4 border-solid border-mainPink bg-secondaryYellow px-10 py-2 text-3xl font-bold shadow-lightBlack transition-all duration-200 ease-out hover:px-16">
                 SHOP NOW!
               </p>
-              <div className="pointer-events-none absolute h-full w-full">
-                <div className="absolute top-1/2 right-0 w-16 translate-x-1/2 -translate-y-1/2 rotate-[30deg]">
-                  <LeafIcon />
-                </div>
-                <div className="absolute top-1/2 left-0 w-16 -translate-x-1/2 -translate-y-1/2">
-                  <LeafIcon />
-                </div>
-              </div>
             </div>
           </div>
         </div>

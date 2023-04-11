@@ -10,7 +10,7 @@ import GunFlowerImg from "@/assets/images/gun-flower.png";
 
 const DonationPage = () => {
   return (
-    <div className="z-10 flex h-screen w-screen items-center justify-center pt-20">
+    <div className="z-10 flex h-screen w-full items-center justify-center pt-20">
       <div className="flex h-full w-full items-center justify-center">
         <motion.div
           className="gap- relative mr-40 flex h-fit w-60 select-none flex-col items-center justify-center"
