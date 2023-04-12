@@ -77,10 +77,10 @@ const StoryPage = () => {
   );
 
   return (
-    <div className="pointer-events-none relative z-30 flex w-full flex-col items-center justify-center pt-20">
+    <div className="pointer-events-none relative z-30 flex w-full flex-col items-center justify-center lg:pt-20">
       {/* FLOATING TEXT */}
       <div className="fixed top-0 left-0 z-10 h-screen w-screen">
-        <div className="relative z-10 flex h-full w-full items-center justify-center px-20 pt-[calc(50vh-200px)]">
+        <div className="relative z-10 flex h-full w-full items-center justify-center px-10 pt-[calc(50vh-200px)] sm:px-20">
           {/* BACKGROUND IMAGE */}
           <motion.div
             className="absolute top-0 left-0 -z-10 h-full w-full"
@@ -91,9 +91,17 @@ const StoryPage = () => {
               className="absolute top-0 left-0 h-full w-full"
               style={{ opacity: springedOpacityOneBg }}
             >
-              <Image src={StoryBgImg} alt="story background image" />
+              <Image
+                src={StoryBgImg}
+                alt="story background image"
+                className="h-full w-full object-cover"
+              />
             </motion.div>
-            <Image src={InspirationBgImg} alt="inspiration background image" />
+            <Image
+              src={InspirationBgImg}
+              alt="inspiration background image"
+              className="h-full w-full object-cover"
+            />
           </motion.div>
           <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-start gap-10">
             {text.paragraph === 1 ? (
@@ -105,7 +113,7 @@ const StoryPage = () => {
                   {text.title}
                 </motion.h2>
                 <motion.p
-                  className="text-5xl leading-normal"
+                  className="text-2xl leading-relaxed sm:text-3xl sm:leading-relaxed lg:text-[40px] lg:leading-relaxed xl:text-5xl xl:leading-normal"
                   style={{ opacity: springedOpacityOne }}
                 >
                   <span className="italic">David</span>, an elementary school
@@ -126,7 +134,7 @@ const StoryPage = () => {
                   {text.title}
                 </motion.h2>
                 <motion.p
-                  className="text-5xl leading-normal"
+                  className="text-2xl leading-relaxed sm:text-3xl sm:leading-relaxed lg:text-[40px] lg:leading-relaxed xl:text-5xl xl:leading-normal"
                   style={{ opacity: springedOpacityTwo }}
                 >
                   During Eric&apos;s first year in Cal State Northridge in 2018,
@@ -148,7 +156,7 @@ const StoryPage = () => {
                   {text.title}
                 </motion.h2>
                 <motion.p
-                  className="text-5xl leading-normal"
+                  className="text-2xl leading-relaxed sm:text-3xl sm:leading-relaxed lg:text-[40px] lg:leading-relaxed xl:text-5xl xl:leading-normal"
                   style={{ opacity: springedOpacityThree }}
                 >
                   Luckily for Eric,{" "}

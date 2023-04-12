@@ -10,20 +10,17 @@ const VideoPage = () => {
 
   return (
     <div
-      className="relative flex h-screen w-full items-center justify-center pt-20"
+      className="relative flex h-screen w-full items-center justify-center lg:pt-20"
       ref={containerVideo}
     >
-      <div className="flex h-full w-full">
-        <div className="flex flex-1 items-center justify-center">
-          <p
-            className="rotate-180 font-serif text-5xl"
-            style={{ writingMode: "vertical-rl" }}
-          >
+      <div className="flex h-full w-full flex-col justify-center gap-10 lg:flex-row lg:gap-0">
+        <div className="flex items-center justify-center lg:flex-1">
+          <p className="font-serif text-3xl sm:text-5xl lg:rotate-180 lg:[writing-mode:vertical-rl]">
             Your Promise
           </p>
         </div>
         <div className="flex items-center justify-center">
-          <div className="relative aspect-video w-[75vw] overflow-hidden rounded-3xl">
+          <div className="relative aspect-video w-[90vw] overflow-hidden rounded-3xl sm:w-[75vw]">
             <ReactPlayer
               url="https://www.youtube.com/embed/ny2qwRBdKOY"
               volume={1}
@@ -37,11 +34,8 @@ const VideoPage = () => {
             />
           </div>
         </div>
-        <div className="flex flex-1 items-center justify-center">
-          <p
-            className="font-serif text-5xl"
-            style={{ writingMode: "vertical-rl" }}
-          >
+        <div className="flex items-center justify-center lg:flex-1">
+          <p className="font-serif text-3xl sm:text-5xl lg:[writing-mode:vertical-rl]">
             Promotional Video
           </p>
         </div>
