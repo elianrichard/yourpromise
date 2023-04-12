@@ -1,20 +1,24 @@
+import HamburgerIcon from "@/assets/svgs/icons/HamburgerIcon";
 import {
   motion,
   type AnimationControls,
   type Variants,
   type Transition,
 } from "framer-motion";
+import { type Dispatch, type SetStateAction, useState } from "react";
 
 const NavLink = ({
   label,
   variants,
   transition,
   current,
+  setNav,
 }: {
   label: string;
   variants: Variants;
   transition: Transition;
   current: string;
+  setNav: Dispatch<SetStateAction<boolean>>;
 }) => {
   const isActive = current === label.toLowerCase();
   return (
@@ -34,6 +38,7 @@ const NavLink = ({
             ? "font-bold text-black"
             : "group-hover:font-bold group-hover:text-black"
         }`}
+        onClick={() => setNav(false)}
       >
         {label}
       </a>
@@ -56,6 +61,7 @@ const NavBar = ({ animateControl, current }: Props) => {
     "BTS",
     "Contact",
   ];
+  const [navOpen, setNavOpen] = useState<boolean>(false);
 
   const containerVar: Variants = {
     show: {
@@ -74,9 +80,23 @@ const NavBar = ({ animateControl, current }: Props) => {
   const childrenTransition = { bounce: 0, duration: 0.5 };
 
   return (
-    <nav className="top-50 after:via-black-30 fixed left-0 z-50 flex w-screen justify-center py-10 px-14 font-serif text-xl after:absolute after:top-0 after:left-0 after:-z-50 after:h-full after:w-full after:bg-gradient-to-b after:from-black/80 after:to-transparent after:opacity-0 after:transition-all after:duration-200 after:ease-out after:hover:opacity-100">
+    <nav
+      className={`top-50 after:via-black-30 fixed left-0 z-50 flex h-screen w-screen items-center justify-center px-14 py-10 font-serif text-xl after:absolute after:top-0 after:left-0 after:-z-50 after:h-full after:w-full after:bg-transparent after:from-black/80 after:to-transparent after:opacity-100 after:transition-all after:duration-200 after:ease-out after:hover:opacity-100 lg:h-fit lg:after:bg-gradient-to-b lg:after:opacity-0`}
+    >
+      <div className="absolute right-5 top-5 z-10 block font-sans lg:hidden">
+        <button
+          onClick={() => setNavOpen((navOpen) => !navOpen)}
+          className="w-10"
+        >
+          <HamburgerIcon />
+        </button>
+      </div>
       <motion.ul
-        className="flex gap-20"
+        className={`absolute z-0 flex h-full w-full flex-col items-center justify-between bg-mainBlue py-20 transition-opacity duration-200 ease-out lg:static lg:flex-row lg:justify-center lg:gap-20 lg:bg-transparent lg:py-0 ${
+          navOpen
+            ? "opacity-100"
+            : "pointer-events-none opacity-0 lg:pointer-events-auto lg:opacity-100"
+        }`}
         variants={containerVar}
         animate={animateControl}
         initial={"hidden"}
@@ -88,6 +108,7 @@ const NavBar = ({ animateControl, current }: Props) => {
             variants={childrenVar}
             transition={childrenTransition}
             current={current}
+            setNav={setNavOpen}
           />
         ))}
       </motion.ul>
