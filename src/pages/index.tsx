@@ -100,17 +100,6 @@ const Home: NextPage = () => {
           <div className="fixed top-0 left-0 -z-50 h-screen w-full bg-mainBlue bg-[url('/bg-squares.png')] bg-cover bg-blend-multiply" />
           <div className={`relative z-10 flex h-full w-full flex-col`}>
             <HomePage animateControl={homeControl} homeRef={homeRef} />
-            <Waypoint
-              onEnter={({ previousPosition }) => {
-                if (previousPosition === "below") setCurrentSection("story");
-                else setCurrentSection("home");
-              }}
-              bottomOffset={"100px"}
-            />
-
-            <StoryPage />
-            <VideoPage />
-            {/* <HomePage animateControl={homeControl} homeRef={homeRef} />
 
             <Waypoint
               onEnter={({ previousPosition }) => {
@@ -163,7 +152,7 @@ const Home: NextPage = () => {
               setCurrentSection={setCurrentSection}
             />
 
-            <MailPage /> */}
+            <MailPage />
           </div>
         </main>
       </div>
