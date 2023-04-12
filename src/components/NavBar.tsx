@@ -5,11 +5,48 @@ import {
   type Transition,
 } from "framer-motion";
 
+const NavLink = ({
+  label,
+  variants,
+  transition,
+  current,
+}: {
+  label: string;
+  variants: Variants;
+  transition: Transition;
+  current: string;
+}) => {
+  const isActive = current === label.toLowerCase();
+  return (
+    <motion.li
+      className={`group relative cursor-pointer after:absolute after:top-[50%] after:left-[50%] after:-z-10 after:h-0 after:w-0 after:-translate-x-[50%] after:-translate-y-[50%] after:rounded-full after:bg-mainYellow after:opacity-0 after:transition-all after:duration-200 after:ease-in-out ${
+        isActive
+          ? "after:h-16 after:w-16 after:opacity-100"
+          : "hover:after:h-16 hover:after:w-16 hover:after:opacity-100"
+      }`}
+      variants={variants}
+      transition={transition}
+    >
+      <a
+        href={`#${label.toLowerCase()}`}
+        className={`transition-all duration-200 ease-in-out ${
+          isActive
+            ? "font-bold text-black"
+            : "group-hover:font-bold group-hover:text-black"
+        }`}
+      >
+        {label}
+      </a>
+    </motion.li>
+  );
+};
+
 interface Props {
   animateControl: AnimationControls;
+  current: string;
 }
 
-const NavBar = ({ animateControl }: Props) => {
+const NavBar = ({ animateControl, current }: Props) => {
   const navLinks = [
     "Home",
     "Story",
@@ -37,7 +74,7 @@ const NavBar = ({ animateControl }: Props) => {
   const childrenTransition = { bounce: 0, duration: 0.5 };
 
   return (
-    <nav className="top-50 fixed left-0 z-50 flex w-screen justify-center py-10 px-14 font-serif text-xl">
+    <nav className="top-50 after:via-black-30 fixed left-0 z-50 flex w-screen justify-center py-10 px-14 font-serif text-xl after:absolute after:top-0 after:left-0 after:-z-50 after:h-full after:w-full after:bg-gradient-to-b after:from-black/80 after:to-transparent after:opacity-0 after:transition-all after:duration-200 after:ease-out after:hover:opacity-100">
       <motion.ul
         className="flex gap-20"
         variants={containerVar}
@@ -50,6 +87,7 @@ const NavBar = ({ animateControl }: Props) => {
             key={i}
             variants={childrenVar}
             transition={childrenTransition}
+            current={current}
           />
         ))}
       </motion.ul>
@@ -58,28 +96,3 @@ const NavBar = ({ animateControl }: Props) => {
 };
 
 export default NavBar;
-
-const NavLink = ({
-  label,
-  variants,
-  transition,
-}: {
-  label: string;
-  variants: Variants;
-  transition: Transition;
-}) => {
-  return (
-    <motion.li
-      className="group relative cursor-pointer after:absolute after:top-[50%] after:left-[50%] after:-z-10 after:h-0 after:w-0 after:-translate-x-[50%] after:-translate-y-[50%] after:rounded-full after:bg-mainYellow after:opacity-0 after:transition-all after:duration-200 after:ease-in-out hover:after:h-16 hover:after:w-16 hover:after:opacity-100"
-      variants={variants}
-      transition={transition}
-    >
-      <a
-        href={`#${label.toLowerCase()}`}
-        className="transition-all duration-200 ease-in-out group-hover:font-bold group-hover:text-black"
-      >
-        {label}
-      </a>
-    </motion.li>
-  );
-};

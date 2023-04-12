@@ -107,7 +107,17 @@
 @layer base {
   html,
   body {
-    @apply scroll-smooth text-white;
+    @apply z-0 scroll-smooth bg-mainBlue text-white;
     -webkit-font-smoothing: subpixel-antialiased;
+  }
+  body::-webkit-scrollbar {
+    @apply w-3 bg-transparent;
+  }
+  body::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+    @apply bg-transparent;
+  }
+  body::-webkit-scrollbar-thumb {
+    @apply bg-mainYellow hover:scale-110;
   }
 }

@@ -29,7 +29,7 @@ const VideoPage = () => {
               volume={1}
               playing={isVideoVisible}
               muted={true}
-              controls={false}
+              controls={true}
               width={"100%"}
               height={"100%"}
               loop
