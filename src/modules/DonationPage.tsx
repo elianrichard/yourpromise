@@ -52,10 +52,9 @@ const DonationPage = () => {
               scale: 1.1,
               transition: { type: "spring", bounce: 0.6 },
             }}
-            href="https://google.com"
+            href="https://csunfunder.csun.edu/project/36190"
             target={"_blank"}
           >
-            {/* <DonationWallet /> */}
             <DonationWallet2 />
           </motion.a>
         </div>
@@ -85,7 +84,7 @@ const DonationPage = () => {
               scale: 1.05,
               transition: { type: "spring", bounce: 0.6 },
             }}
-            href="https://google.com"
+            href="https://engage.csun.edu/your_promise_intl"
             target={"_blank"}
           >
             <div className="absolute top-1/2 left-1/2 -z-10 w-80 -translate-y-[calc(50%+15px)] -translate-x-[calc(50%-20px)]">

@@ -12,7 +12,7 @@ const MailPage = () => {
     >
       <a
         className="group relative w-[700px] cursor-pointer overflow-hidden"
-        href="https://google.com"
+        href="https://forms.gle/UgM3tmLLVTy5krg98"
         target="_blank"
         rel="noreferrer"
       >

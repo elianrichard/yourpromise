@@ -11,14 +11,16 @@ const CrewCard = ({
   name,
   role,
   image,
+  bio,
 }: {
   name: string;
   role: string;
   image: StaticImageData;
+  bio: string;
 }) => {
   return (
     <div className="flex select-none flex-col gap-3">
-      <div className="flex w-fit justify-center whitespace-nowrap bg-mainYellow/90 py-2 px-5 font-serif text-2xl text-black">
+      <div className="flex w-fit justify-center whitespace-nowrap bg-mainYellow/90 py-2 px-5 font-sans text-2xl text-black">
         {role}
       </div>
       <div className="group h-[425px] w-[300px] [perspective:1000px]">
@@ -35,10 +37,8 @@ const CrewCard = ({
             <p className="py-6 font-serif text-xl text-black">{name}</p>
           </div>
           <div className="absolute z-20 flex h-full w-full flex-col overflow-hidden bg-[#2e2e2e] pt-7 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-            <div className="flex flex-1 flex-col items-center justify-center bg-black">
-              <p>Age: 23 Years Old</p>
-              <p>Hobbies: Playing Games</p>
-              <p>... Other crew&apos;s bio</p>
+            <div className="flex flex-1 flex-col items-center justify-center bg-black px-10">
+              <p>{bio}</p>
             </div>
             <div className="flex -translate-x-10 gap-10">
               <p className="py-6 font-[Fuji] text-xl text-white">YOURPROMISE</p>
@@ -57,7 +57,13 @@ const CrewListPage = () => {
     <div className="flex h-fit w-full flex-col items-center justify-center gap-20 py-20 px-20">
       <div className="relative flex w-full justify-around">
         {headList.map((el, i) => (
-          <CrewCard name={el.name} role={el.role} image={el.image} key={i} />
+          <CrewCard
+            name={el.name}
+            role={el.role}
+            image={el.image}
+            bio={el.bio}
+            key={i}
+          />
         ))}
         {/* DECORATION */}
         <div className="absolute top-0 left-0 -z-10 h-full w-full">
@@ -92,7 +98,13 @@ const CrewListPage = () => {
       </div>
       <div className="flex w-full flex-wrap justify-around gap-y-16">
         {crewList.map((el, i) => (
-          <CrewCard name={el.name} role={el.role} image={el.image} key={i} />
+          <CrewCard
+            name={el.name}
+            role={el.role}
+            image={el.image}
+            bio={el.bio}
+            key={i}
+          />
         ))}
       </div>
     </div>
