@@ -80,7 +80,7 @@ const StoryPage = () => {
     <div className="pointer-events-none relative z-30 flex w-full flex-col items-center justify-center lg:pt-20">
       {/* FLOATING TEXT */}
       <div className="fixed top-0 left-0 z-10 h-screen w-screen">
-        <div className="relative z-10 flex h-full w-full items-center justify-center px-10 pt-[calc(50vh-200px)] sm:px-20">
+        <div className="relative z-10 flex h-full w-full items-center justify-center px-10 pt-[calc(50vh-250px)] sm:px-20 sm:pt-[calc(50vh-200px)]">
           {/* BACKGROUND IMAGE */}
           <motion.div
             className="absolute top-0 left-0 -z-10 h-full w-full"
