@@ -25,11 +25,11 @@ const VideoPage = () => {
         <div className="flex items-center justify-center">
           <div className="relative aspect-video w-[75vw] overflow-hidden rounded-3xl">
             <ReactPlayer
-              url="sample.mp4"
+              url="https://www.youtube.com/embed/ny2qwRBdKOY"
               volume={1}
               playing={isVideoVisible}
-              muted={false}
-              controls={true}
+              muted={true}
+              controls={false}
               width={"100%"}
               height={"100%"}
               loop
