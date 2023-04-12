@@ -7,11 +7,11 @@ import FlowerBox from "@/assets/images/flower.png";
 const HomeDeco = () => {
   const baloonKidControl = useAnimationControls();
   return (
-    <div className="fixed top-0 left-0 h-screen w-screen">
+    <div className="fixed top-0 left-0 -z-10 h-screen w-screen">
       <div className="absolute top-0 left-0 h-full w-full bg-[url(https://grainy-gradients.vercel.app/noise.svg)] opacity-10" />
       <motion.div
         initial={{ top: "100%" }}
-        className="absolute -right-20"
+        className="absolute -right-10 lg:-right-20"
         animate={{ top: "40px" }}
         transition={{
           ease: "circOut",
@@ -34,7 +34,7 @@ const HomeDeco = () => {
           <Image
             src={BalloonKid}
             alt="kid floating with a balloon"
-            width={500}
+            className="w-[250px] sm:w-[300px] lg:w-[400px] xl:w-[500px]"
             priority
           />
         </motion.div>
@@ -47,8 +47,7 @@ const HomeDeco = () => {
         <Image
           src={FlowerBox}
           alt="flower and gun in a box"
-          width={500}
-          className="absolute left-0 bottom-0"
+          className="sm:[300px] absolute left-0 bottom-0 w-[250px] lg:w-[400px] xl:w-[500px]"
           priority
         />
       </motion.div>

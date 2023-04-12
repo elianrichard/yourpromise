@@ -41,7 +41,7 @@ const HomePage = ({ animateControl, homeRef }: Props) => {
       initial="hidden"
       animate={animateControl}
       transition={{ ease: "easeOut", duration: 0.2 }}
-      className="pointer-events-none flex h-screen w-full select-none flex-col items-center justify-center gap-8 overflow-hidden px-14"
+      className="pointer-events-none z-0 flex h-screen w-full select-none flex-col items-center justify-center gap-10 overflow-hidden px-2 sm:px-14"
       ref={homeRef}
       style={{ opacity: useSpringedOpacity }}
       id="home"
@@ -49,19 +49,19 @@ const HomePage = ({ animateControl, homeRef }: Props) => {
       <HomeDeco />
       <motion.h2
         variants={childrenVar}
-        className="text-lg font-light uppercase tracking-[0.3em]"
+        className="text-sm font-light uppercase tracking-[0.3em] sm:text-base lg:text-lg"
       >
         A CSUN CTVA Thesis Film
       </motion.h2>
       <motion.h1
         variants={childrenVar}
-        className="font-serif text-[90px] uppercase"
+        className="font-serif text-5xl uppercase sm:text-7xl lg:text-[90px]"
       >
         Your Promise
       </motion.h1>
       <motion.h2
         variants={childrenVar}
-        className="font-serif text-xl font-light tracking-widest"
+        className="text-center font-serif text-base font-light tracking-widest sm:text-lg lg:text-xl"
       >
         Directed by Haoqian &quot;Eric&quot; He & Ricardo Medina
       </motion.h2>
