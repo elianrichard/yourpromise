@@ -91,9 +91,9 @@ const DonationPage = () => {
           </motion.a>
         </div>
         {/* RIGHT DECORATION */}
-        <div className="flex h-full flex-col items-center justify-center md:flex-row md:gap-40 lg:flex-col lg:gap-0">
+        <div className="mb-10 flex h-full flex-col items-center justify-center gap-10 md:flex-row md:gap-40 lg:mb-0 lg:flex-col lg:gap-0">
           <motion.div
-            className="relative flex h-80 w-36 select-none flex-col items-center justify-center gap-4 font-serif xl:w-40"
+            className="relative flex h-48 w-36 select-none flex-col items-center justify-center gap-4 font-serif lg:h-80 xl:w-40"
             whileHover={{
               scale: 1.05,
               transition: { ease: "easeOut", duration: 0.2 },
@@ -112,7 +112,7 @@ const DonationPage = () => {
             </p>
           </motion.div>
           <motion.a
-            className="relative flex h-80 w-32 cursor-pointer flex-col items-center justify-center gap-3 font-serif xl:w-40 xl:gap-6"
+            className="relative flex h-48 w-36 cursor-pointer flex-col items-center justify-center gap-3 font-serif lg:h-80 xl:w-40 xl:gap-6"
             whileHover={{
               scale: 1.05,
               transition: { type: "spring", bounce: 0.6 },
