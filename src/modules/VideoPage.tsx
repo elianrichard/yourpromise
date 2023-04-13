@@ -22,7 +22,7 @@ const VideoPage = () => {
         <div className="flex items-center justify-center">
           <div className="relative aspect-video w-[90vw] overflow-hidden rounded-3xl sm:w-[75vw]">
             <ReactPlayer
-              url="https://www.youtube.com/embed/ny2qwRBdKOY"
+              url="https://www.youtube.com/embed/v4l8FVil0eY"
               volume={1}
               playing={isVideoVisible}
               muted={true}
