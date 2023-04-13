@@ -144,7 +144,7 @@ const Home: NextPage = () => {
               setCurrentSection={setCurrentSection}
             />
 
-            {/* <BTSPage />
+            <BTSPage />
 
             <PageBreak
               before="bts"
@@ -152,7 +152,7 @@ const Home: NextPage = () => {
               setCurrentSection={setCurrentSection}
             />
 
-            <MailPage /> */}
+            <MailPage />
           </div>
         </main>
       </div>
