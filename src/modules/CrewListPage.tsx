@@ -58,7 +58,7 @@ const CrewCard = ({
 const CrewListPage = () => {
   return (
     <div className="flex h-fit w-full flex-col items-center justify-center gap-20 py-20 px-10 lg:px-20">
-      <div className="flex w-full flex-wrap justify-around gap-y-16">
+      <div className="relative flex w-full flex-wrap justify-around gap-y-16">
         {headList.map((el, i) => (
           <CrewCard
             name={el.name}

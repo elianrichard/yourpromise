@@ -130,13 +130,13 @@ const Home: NextPage = () => {
             <CrewPage />
             <CrewListPage />
 
-            {/* <PageBreak
+            <PageBreak
               before="crew"
               after="merch"
               setCurrentSection={setCurrentSection}
-            /> */}
+            />
 
-            {/* <MerchPage />
+            <MerchPage />
 
             <PageBreak
               before="merch"
@@ -144,7 +144,7 @@ const Home: NextPage = () => {
               setCurrentSection={setCurrentSection}
             />
 
-            <BTSPage />
+            {/* <BTSPage />
 
             <PageBreak
               before="bts"
