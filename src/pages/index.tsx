@@ -128,7 +128,7 @@ const Home: NextPage = () => {
             />
 
             <CrewPage />
-            {/* <CrewListPage /> */}
+            <CrewListPage />
 
             {/* <PageBreak
               before="crew"
