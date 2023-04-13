@@ -31,10 +31,11 @@ const CrewCard = ({
               <Image
                 src={image}
                 alt={name}
-                className="h-full w-full object-cover"
+                className="absolute z-0 h-full w-full object-cover"
+                // loading="eager"
               />
             </div>
-            <p className="py-6 font-serif text-xl text-black sm:py-2 sm:text-lg md:py-6 lg:text-xl">
+            <p className="py-6 font-serif text-xl text-black sm:py-2 sm:text-lg md:py-3 lg:text-xl">
               {name}
             </p>
           </div>
