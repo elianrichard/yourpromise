@@ -140,7 +140,7 @@ export const crewList = [
   },
   {
     name: "Hye Young",
-    role: "Best Girl Grip",
+    role: "G&E Swing",
     image: CrewImg,
     bio: "Hye Young is a Senior at CSUN, graduating in Fall of 2023. Hye Young is majoring in Film production and is eager to utilize their skills for Your Promise production.",
   },

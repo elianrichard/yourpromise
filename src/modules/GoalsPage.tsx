@@ -1,5 +1,5 @@
 import { type PropsWithChildren } from "react";
-import { type Variants, motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 
 import Goals1 from "@/assets/svgs/goals/Goals1";
 import Goals2 from "@/assets/svgs/goals/Goals2";
@@ -36,11 +36,6 @@ const GoalsCard = ({
   textBubble: string;
   bubbleClasses: string;
 }>) => {
-  const bubbleTextVariants: Variants = {
-    initial: { scale: 0 },
-    show: { scale: 1 },
-  };
-
   const bubbleAnimControl = useAnimationControls();
 
   return (

@@ -174,7 +174,7 @@ const MerchPage = () => {
             </div>
             <div className="relative flex w-fit items-center justify-center">
               <a
-                href="https://google.com"
+                href="https://www.instagram.com/yourpromisefilm/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex cursor-pointer justify-center rounded-xl border-4 border-solid border-mainPink bg-secondaryYellow px-10 py-2 text-xl font-bold shadow-lightBlack transition-all duration-200 ease-out hover:px-16 md:text-3xl"

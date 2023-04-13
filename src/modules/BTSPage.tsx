@@ -76,10 +76,10 @@ const BTSPage = () => {
       <div className="top-0 flex w-full flex-col items-center justify-between">
         <div className="flex h-full w-full flex-col justify-center gap-10 overflow-x-hidden">
           <p className="px-10 text-2xl md:text-5xl">Promotional Video BTS</p>
-          <div className="relative h-52 overflow-x-hidden bg-black px-5 text-black scrollbar-hide md:h-72">
+          <div className="custom-scrollbar relative h-52 overflow-x-scroll bg-black px-5 text-black md:h-72 md:overflow-x-hidden">
             <motion.div
-              className="absolute flex h-full w-fit gap-5 md:gap-8"
-              style={{ left: x_promo }}
+              className="flex h-full w-fit gap-5 md:absolute md:gap-8"
+              style={{ left: width > 768 ? x_promo : 0 }}
             >
               {PromoImgs.map((el, i) => (
                 <ImageCard key={i} image={el} />
@@ -87,10 +87,10 @@ const BTSPage = () => {
             </motion.div>
           </div>
           <p className="self-end px-10 text-2xl md:text-5xl">Sugar Fix BTS</p>
-          <div className="relative h-52 overflow-x-hidden bg-black px-5 text-black scrollbar-hide md:h-72">
+          <div className="custom-scrollbar relative h-52 overflow-x-scroll bg-black px-5 text-black md:h-72 md:overflow-x-hidden">
             <motion.div
-              className="absolute flex h-full w-fit gap-5 md:gap-8"
-              style={{ right: x_sugar }}
+              className="flex h-full w-fit gap-5 md:absolute md:gap-8"
+              style={{ right: width > 768 ? x_sugar : 0 }}
             >
               {SugarImgs.reverse().map((el, i) => (
                 <ImageCard key={i + 100} image={el} />

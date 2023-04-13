@@ -7,6 +7,8 @@ import Sticker3Img from "@/assets/images/stickers/sticker-3.png";
 import Sticker4Img from "@/assets/images/stickers/sticker-4.png";
 import Sticker5Img from "@/assets/images/stickers/sticker-5.png";
 
+import CrewImg from "@/assets/images/crews/placeholder.jpg";
+
 const CrewCard = ({
   name,
   role,
@@ -19,20 +21,19 @@ const CrewCard = ({
   bio: string;
 }) => {
   return (
-    <div className="flex w-full select-none flex-col gap-3 sm:w-[200px] lg:w-[300px]">
+    <div className="flex w-full select-none flex-col items-center gap-3 sm:w-[200px] lg:w-[300px]">
       <div className="flex w-fit justify-center bg-mainYellow/90 py-2 px-3 font-sans text-lg text-black lg:whitespace-nowrap lg:px-5 lg:text-2xl">
         {role}
       </div>
-      <div className="group z-0 aspect-[7/10] w-full [perspective:1000px] sm:w-[200px] lg:w-[300px]">
+      <div className="group z-0 aspect-[7/10] w-[300px] [perspective:1000px] sm:w-[200px] lg:w-[300px]">
         <div className="relative z-0 h-full w-full transition-all duration-[750ms] ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
           <div className="absolute z-10 flex h-full w-full flex-col items-end bg-paleWhite px-7 pt-7 opacity-100 shadow-mediumBlack group-hover:[backface-visibility:hidden] sm:px-5 sm:pt-5 lg:px-7 lg:pt-7">
             <div className="relative w-full flex-1">
               <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.35)]" />
               <Image
-                src={image}
+                src={CrewImg}
                 alt={name}
                 className="absolute z-0 h-full w-full object-cover"
-                // loading="eager"
               />
             </div>
             <p className="py-6 font-serif text-xl text-black sm:py-2 sm:text-lg md:py-3 lg:text-xl">
@@ -58,8 +59,8 @@ const CrewCard = ({
 
 const CrewListPage = () => {
   return (
-    <div className="flex h-fit w-full flex-col items-center justify-center gap-20 py-20 px-10 lg:px-20">
-      <div className="relative flex w-full flex-wrap justify-around gap-y-16">
+    <div className="flex h-fit w-full flex-col items-center justify-center gap-20 py-20 sm:px-10 lg:px-20">
+      <div className="relative flex w-full flex-row flex-wrap items-center justify-around gap-y-16">
         {headList.map((el, i) => (
           <CrewCard
             name={el.name}
@@ -98,7 +99,7 @@ const CrewListPage = () => {
           />
         </div>
       </div>
-      <div className="flex w-full flex-wrap justify-around gap-y-16">
+      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16">
         {crewList.map((el, i) => (
           <CrewCard
             name={el.name}

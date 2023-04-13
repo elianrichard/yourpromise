@@ -8,8 +8,9 @@ import {
 } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import Image from "next/image";
+import { Waypoint } from "react-waypoint";
 
 import { useAnimationControls, useInView } from "framer-motion";
 
@@ -24,11 +25,11 @@ import CrewPage from "@/modules/CrewPage";
 import CrewListPage from "@/modules/CrewListPage";
 import MerchPage from "@/modules/MerchPage";
 import MailPage from "@/modules/MailPage";
-import { Waypoint } from "react-waypoint";
+import BTSPage from "@/modules/BTSPage";
 
-const BTSPage = dynamic(() => import("@/modules/BTSPage"), {
-  ssr: false,
-});
+// const BTSPage = dynamic(() => import("@/modules/BTSPage"), {
+//   ssr: false,
+// });
 
 const PageBreak = ({
   setCurrentSection,
@@ -63,7 +64,8 @@ const Home: NextPage = () => {
   const isHomeInView = useInView(homeRef);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const scroll = setTimeout(() => window.scrollTo(0, 0), 200);
+    return () => clearTimeout(scroll);
   }, []);
 
   useEffect(() => {
@@ -81,7 +83,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>YourPromise</title>
+        <title>Your Promise CSUN Short Film</title>
         <meta name="description" content="YourPromise Official Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
