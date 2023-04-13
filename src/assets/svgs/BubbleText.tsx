@@ -4,6 +4,8 @@ const BubbleText = () => {
       viewBox="0 0 111 103"
       fill="#DAE4C5"
       xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      className="h-full w-full"
     >
       <g filter="url(#filter0_d_171_3)">
         <path

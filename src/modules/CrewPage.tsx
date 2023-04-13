@@ -15,25 +15,25 @@ import { motion } from "framer-motion";
 const Decoration = () => {
   return (
     <div className="absolute top-0 left-0 h-full w-full">
-      <div className="absolute top-0 left-0 w-28 -translate-x-36 -translate-y-10 -rotate-[20deg] text-mainSage">
+      <div className="absolute top-0 left-0 w-20 -translate-y-32 -rotate-[20deg] text-mainSage md:w-28 lg:-translate-x-36 lg:-translate-y-10">
         <TrophyIcon />
       </div>
-      <div className="absolute top-1/2 left-0  w-5 -translate-x-20 -translate-y-10 rotate-[25deg] text-mainSage">
+      <div className="absolute top-0 left-0 hidden w-3 -translate-y-32 translate-x-40 rotate-[25deg] text-mainSage sm:block md:w-5 lg:top-1/2 lg:-translate-x-20 lg:-translate-y-10">
         <PencilIcon />
       </div>
-      <div className="absolute bottom-0 left-0 w-24 -translate-x-40 -translate-y-0  rotate-[0deg]">
+      <div className="absolute bottom-0 left-0 w-20 translate-x-3 translate-y-28 rotate-[0deg] md:w-24 lg:-translate-x-40  lg:-translate-y-0">
         <FormulaIcon1 strokeColor="white" />
       </div>
-      <div className="absolute top-0 right-0 w-24 translate-x-36 -translate-y-10 -rotate-[20deg] text-mainLime">
+      <div className="absolute top-0 right-0 w-20 -translate-x-0 -translate-y-24 -rotate-[20deg] text-mainLime md:w-24 lg:translate-x-36 lg:-translate-y-10">
         <AtomIcon />
       </div>
-      <div className="absolute top-1/2 right-0 w-20 translate-x-48 -translate-y-10 rotate-[0deg]">
+      <div className="absolute bottom-0 right-1/2 w-16 translate-y-28 translate-x-10 rotate-[0deg] md:w-20 lg:top-1/2 lg:right-0 lg:translate-x-48 lg:-translate-y-10">
         <CalendarIcon strokeColor="#D0F4EA" />
       </div>
-      <div className="absolute bottom-0 right-0 w-10 translate-x-20 -translate-y-0 -rotate-[10deg]">
+      <div className="absolute bottom-0 right-0 w-8 translate-y-28 -translate-x-8 rotate-[30deg] md:w-10 lg:translate-x-20 lg:-translate-y-0 lg:-rotate-[10deg]">
         <MusicNoteIcon strokeColor="#D0F4EA" />
       </div>
-      <div className="absolute top-0 right-1/2 w-32 translate-x-20 -translate-y-32 -rotate-[10deg] text-white">
+      <div className="absolute top-0 right-1/2 w-28 translate-x-20 -translate-y-32 -rotate-[10deg] text-white md:w-32">
         <PlaneTrailsIcon strokeColor="white" />
       </div>
     </div>
@@ -43,27 +43,31 @@ const Decoration = () => {
 const CrewPage = () => {
   return (
     <div
-      className="relative mt-20 flex h-screen w-full items-center justify-center pt-20"
+      className="relative flex h-fit max-w-full select-none items-center justify-center overflow-hidden py-40 px-4 sm:px-10 md:px-20"
       id="crew"
     >
-      <div className="relative h-[550px] w-[1000px] rotate-[2deg] text-black ">
+      <div className="relative h-fit w-full rotate-[2deg] bg-black text-black md:aspect-[16/9] lg:w-[800px] xl:h-[550px] xl:w-[1000px] ">
         <Decoration />
         <motion.div
-          className="relative flex h-full w-full flex-col bg-paleWhite px-8 pt-8 shadow-heavyBlack"
+          className="relative flex h-full w-full flex-col bg-paleWhite px-5 pt-5 shadow-heavyBlack md:px-8 md:pt-8"
           whileHover={{ scale: 1.05, rotate: -2 }}
           transition={{ ease: "easeOut", duration: 0.25 }}
         >
           <div className="absolute top-0 left-1/2 z-10 h-10 w-60 -translate-x-1/2 -translate-y-1/2 -rotate-[1deg] bg-mainYellow opacity-80 shadow-lightBlack" />
-          <div className="relative h-[300px] w-full flex-1">
+          <div className="relative w-full flex-1 md:h-[300px]">
             <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.5)]" />
-            <Image src={OurCrewImg} alt="YourPromise crews image" fill />
+            <Image
+              src={OurCrewImg}
+              alt="YourPromise crews image"
+              className="h-full w-full object-cover"
+            />
           </div>
-          <div className="flex min-h-[80px] w-full items-center justify-center gap-5 font-serif text-4xl">
-            <div className="w-10 -translate-y-1">
+          <div className="flex w-full items-center justify-center gap-5 py-2 font-serif text-xl sm:text-2xl lg:text-4xl xl:min-h-[80px]">
+            <div className="w-6 -translate-y-1 sm:w-8 lg:w-10">
               <StarIcon />
             </div>
             Our Crew
-            <div className="w-10 -translate-y-1">
+            <div className="w-6 -translate-y-1 sm:w-8 lg:w-10">
               <StarIcon />
             </div>
           </div>

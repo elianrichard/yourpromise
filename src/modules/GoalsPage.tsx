@@ -45,7 +45,7 @@ const GoalsCard = ({
 
   return (
     <motion.div
-      className="flex items-center justify-center"
+      className="group flex items-center justify-center"
       whileHover={{
         scale: 1.05,
         transition: { ease: "easeOut", duration: 0.2 },
@@ -58,12 +58,12 @@ const GoalsCard = ({
           padding || "p-5 md:p-7"
         } ${additionalClass}`}
       >
-        <motion.div
-          variants={bubbleTextVariants}
-          initial="initial"
-          animate={bubbleAnimControl}
-          transition={{ ease: "easeOut", duration: 0.25 }}
-          className={`pointer-events-none absolute z-40 flex aspect-square w-44 origin-bottom-right items-center justify-center px-4 ${bubbleClasses}`}
+        <div
+          // variants={bubbleTextVariants}
+          // initial="initial"
+          // animate={bubbleAnimControl}
+          // transition={{ ease: "easeOut", duration: 0.25 }}
+          className={`pointer-events-none absolute z-40 flex aspect-square w-44 origin-bottom-right items-center justify-center px-4 ${bubbleClasses} lg:opacity-1 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 lg:[transform:scale3d(0,0,1)] lg:group-hover:[transform:scale3d(1,1,1)]`}
         >
           <p
             className="z-10 text-center font-medium"
@@ -71,10 +71,10 @@ const GoalsCard = ({
           >
             {textBubble}
           </p>
-          <div className="absolute top-0 left-0 w-full translate-y-3">
+          <div className="absolute top-0 left-0 h-full w-full translate-y-3">
             <BubbleText />
           </div>
-        </motion.div>
+        </div>
         {children}
       </div>
     </motion.div>
