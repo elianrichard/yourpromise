@@ -8,7 +8,8 @@ const SignBoardVertical = () => {
       fill="none"
       viewBox="0 0 31 498"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-full"
+      className="h-full w-full"
+      preserveAspectRatio="none"
     >
       <path
         d="M30.4915 0.5L30.4915 497.5H0.5L0.5 0.5H30.4915Z"

@@ -54,8 +54,8 @@ const GoalsCard = ({
       onMouseLeave={() => void bubbleAnimControl.start("initial")}
     >
       <div
-        className={`relative flex h-32 w-32 items-center justify-center rounded-lg border-8 border-solid border-white shadow-lightBlack ${
-          padding || "p-7"
+        className={`relative flex aspect-square w-28 items-center justify-center rounded-lg border-8 border-solid border-white shadow-lightBlack xl:w-32 ${
+          padding || "p-5 md:p-7"
         } ${additionalClass}`}
       >
         <motion.div
@@ -83,44 +83,44 @@ const GoalsCard = ({
 
 const GoalsPage = () => {
   return (
-    <div className="z-10 flex w-full items-center justify-center px-20 pt-20 font-serif text-black">
-      <div className="relative grid min-h-[550px] w-full grid-cols-2 gap-x-4 bg-mainCream px-20 py-14">
+    <div className="z-10 flex w-full items-center justify-center py-20 font-serif text-black sm:px-12 xl:px-20">
+      <div className="relative z-0 grid min-h-[550px] w-full grid-cols-1 gap-x-4 gap-y-20 bg-mainCream px-14 py-14 md:px-20 lg:grid-cols-2 lg:gap-y-0 lg:px-14 xl:px-20">
         {/* DECORATION  */}
-        <div className="absolute top-0 left-0 h-full w-full">
-          <div className="absolute bottom-[100%] left-0 h-fit w-full bg-black shadow-xl">
+        <div className="absolute top-0 left-0 -z-10 h-full w-full">
+          <div className="absolute bottom-[100%] left-0 h-8 w-full bg-black shadow-xl">
             <SignBoardHorizon />
           </div>
-          <div className="absolute top-[100%] left-0 h-fit w-full bg-black shadow-xl">
+          <div className="absolute top-[100%] left-0 h-8 w-full bg-black shadow-xl">
             <SignBoardHorizon />
           </div>
-          <div className="absolute top-0 left-0 h-full bg-black shadow-xl">
+          <div className="absolute top-0 left-0 h-full w-8 bg-black shadow-xl">
             <SignBoardVertical />
           </div>
-          <div className="absolute top-0 right-0 h-full bg-black shadow-xl">
+          <div className="absolute top-0 right-0 h-full w-8 bg-black shadow-xl">
             <SignBoardVertical />
           </div>
-          <div className="absolute top-0 left-1/2 w-28 -translate-x-40 translate-y-5 text-transparent">
+          <div className="absolute top-0 right-0 hidden w-24 -translate-x-32 translate-y-5 text-transparent md:block lg:left-1/2 xl:w-28 xl:-translate-x-40">
             <PlaneIcon strokeColor="#1B92A7" />
           </div>
-          <div className="absolute bottom-0 left-1/2 w-32 -translate-y-10 -translate-x-20 text-transparent">
+          <div className="absolute bottom-0 left-0 w-28 translate-x-20 -translate-y-10 text-transparent lg:left-1/2 lg:-translate-x-20 xl:w-32">
             <PlanetIcon strokeColor="#E5C726" />
           </div>
-          <div className="absolute top-0 left-1/2 w-20 translate-y-24 text-mainPink">
+          <div className="absolute top-0 right-0 hidden w-20 -translate-x-20 translate-y-24 text-mainPink md:block lg:left-1/2">
             <DoubleLoveIcon />
           </div>
         </div>
         {/* LEFT CONTENT */}
-        <div className="my-5 flex flex-col items-start justify-center gap-12 text-2xl leading-loose">
-          <div className="relative mt-2 -rotate-[7deg] text-5xl">
-            <div className="absolute left-0 -z-10 w-60 translate-y-4 -translate-x-5 text-mainPink">
+        <div className="my-5 flex flex-col items-start justify-center gap-12">
+          <div className="relative mt-2 -rotate-[7deg] pl-4 text-4xl xl:text-5xl">
+            <div className="absolute left-0 -z-10 w-44 translate-y-6 -translate-x-2 text-mainPink xl:w-60 xl:translate-y-4 xl:-translate-x-5">
               <GoalsTitleLines />
             </div>
-            <div className="absolute left-[100%] top-0 w-24 translate-x-12 -translate-y-4 rotate-[10deg] text-[#E5C726]">
+            <div className="absolute left-[100%] top-0 w-20 translate-x-6 -translate-y-4 rotate-[10deg] text-[#E5C726] xl:w-24 xl:translate-x-12">
               <TrophyIcon />
             </div>
             <p>Our Goal</p>
           </div>
-          <div className="pl-10">
+          <div className="pl-5 text-lg leading-loose sm:text-xl sm:leading-loose lg:pl-10 xl:text-2xl xl:leading-loose">
             Our goal is to{" "}
             <div className="relative inline-block bg-mainYellow/80 px-2">
               raise $35,000{" "}
@@ -143,46 +143,46 @@ const GoalsPage = () => {
           </div>
         </div>
         {/* RIGHT CONTENT */}
-        <div className="flex h-full w-full flex-col items-center justify-between gap-5">
+        <div className="flex h-full w-full flex-col items-center justify-between gap-10 lg:gap-5">
           {/* TITLE */}
-          <div className="relative -translate-y-4 rotate-[3deg] bg-mainSage px-10 py-3 text-2xl shadow-lightBlack">
-            <div className="absolute top-0 left-0 w-14 -translate-x-[50%] -translate-y-[calc(50%-7px)] -rotate-[15deg] text-mainPink drop-shadow-lightBlack">
+          <div className="relative -translate-y-4 rotate-[3deg] bg-mainSage px-3 py-3 text-center text-lg shadow-lightBlack md:px-10 md:text-xl xl:text-2xl">
+            <div className="absolute top-0 left-0 w-10 -translate-x-[50%] -translate-y-[calc(50%-7px)] -rotate-[15deg] text-mainPink drop-shadow-lightBlack md:w-14 ">
               <LoveIcon />
             </div>
-            <div className="absolute bottom-0 right-0 w-10 translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-lightBlack">
+            <div className="absolute bottom-0 right-0 w-6 translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-lightBlack md:w-10">
               <CircleIcon />
             </div>
             Your Donations will be used for the following:
           </div>
           {/* GOALS CARDS */}
-          <div className="grid h-fit w-full flex-1 grid-cols-3">
+          <div className="grid h-fit w-full flex-1 grid-cols-2 gap-y-10 md:grid-cols-3 lg:gap-y-0">
             <GoalsCard
-              additionalClass="bg-mainBlue -rotate-[10deg] translate-y-5"
+              additionalClass="bg-mainBlue md:-rotate-[10deg] md:translate-y-5"
               textBubble="Location (permits, insurance, transportation, etc.)"
-              bubbleClasses="bottom-[calc(100%-30px)] right-[calc(100%-30px)]"
+              bubbleClasses="bottom-[calc(100%-30px)] right-0 lg:right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-lightBlack">
+              <div className="absolute top-0 right-0 w-10 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-lightBlack md:w-12">
                 <LoveIcon />
               </div>
-              <div className="absolute bottom-0 left-0 w-10 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-lightBlack">
+              <div className="absolute bottom-0 left-0 w-8 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-secondaryYellow drop-shadow-lightBlack md:w-10">
                 <CircleIcon />
               </div>
               <Goals1 />
             </GoalsCard>
             <GoalsCard
-              additionalClass="bg-mainPink rotate-[14deg] translate-x-4 -translate-y-2"
+              additionalClass="bg-mainPink md:rotate-[14deg] md:translate-x-4 md:-translate-y-2"
               textBubble="Casting (casting director, talent, extras, studio teacher, etc.)"
               bubbleClasses="bottom-[25px] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 left-1/2 w-10 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainYellow drop-shadow-lightBlack">
+              <div className="absolute top-0 left-1/2 w-8 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainYellow drop-shadow-lightBlack md:w-10">
                 <CircleIcon />
               </div>
               <Goals2 />
             </GoalsCard>
             <GoalsCard
-              additionalClass="bg-mainPink translate-y-8 -rotate-[5deg] translate-x-4"
+              additionalClass="bg-mainPink md:translate-y-8 md:-rotate-[5deg] md:translate-x-4"
               textBubble="Rentals (camera, audio, grip and electric, expendables, etc.)"
-              bubbleClasses="bottom-[calc(100%-30px)] right-[calc(100%-30px)]"
+              bubbleClasses="bottom-[calc(100%-30px)] right-0 lg:right-[calc(100%-30px)]"
             >
               <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-secondaryYellow drop-shadow-lightBlack">
                 <StarIcon />
@@ -190,38 +190,38 @@ const GoalsPage = () => {
               <Goals3 />
             </GoalsCard>
             <GoalsCard
-              additionalClass="bg-mainYellow translate-y-12 rotate-[10deg] translate-x-8"
+              additionalClass="bg-mainYellow md:translate-y-12 md:rotate-[10deg] md:translate-x-8"
               textBubble="Art (production design, wardrobe, hair, makeup, etc.)"
               bubbleClasses="bottom-[30px] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 left-0 w-12 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainSage drop-shadow-lightBlack">
+              <div className="absolute top-0 left-0 w-8 -translate-x-[50%] -translate-y-[50%] rotate-[15deg] text-mainSage drop-shadow-lightBlack md:w-12">
                 <CircleIcon />
               </div>
               <Goals4 />
             </GoalsCard>
             <GoalsCard
-              additionalClass="bg-mainYellow translate-y-2 -rotate-[5deg] translate-x-5"
-              padding={"p-9"}
+              additionalClass="bg-mainYellow md:translate-y-2 md:-rotate-[5deg] md:translate-x-5"
+              padding={"p-7 md:p-9"}
               textBubble="Catering and Craft Services (to feed our hardworking cast and crew!)"
-              bubbleClasses="bottom-[calc(100%-40px)] right-[calc(100%-30px)]"
+              bubbleClasses="bottom-[calc(100%-40px)] right-0 lg:right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-14 translate-x-[50%] -translate-y-[50%] rotate-[20deg] text-secondaryYellow drop-shadow-lightBlack">
+              <div className="absolute top-0 right-0 w-10 translate-x-[50%] -translate-y-[50%] rotate-[20deg] text-secondaryYellow drop-shadow-lightBlack md:w-14">
                 <TriangleIcon />
               </div>
-              <div className="absolute bottom-0 left-0 w-12 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-lightBlack">
+              <div className="absolute bottom-0 left-0 w-8 -translate-x-[50%] translate-y-[50%] rotate-[25deg] text-mainSage drop-shadow-lightBlack md:w-12">
                 <CircleIcon />
               </div>
               <Goals5 />
             </GoalsCard>
             <GoalsCard
-              additionalClass="bg-mainBlue translate-y-16 rotate-[8deg]"
+              additionalClass="bg-mainBlue md:translate-y-16 md:rotate-[8deg]"
               textBubble="COVID Enforcement (PPE, cleaning supplies, testing, etc.)"
               bubbleClasses="bottom-[calc(100%-60px)] right-[calc(100%-30px)]"
             >
-              <div className="absolute top-0 right-0 w-12 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainYellow drop-shadow-lightBlack">
+              <div className="absolute top-0 right-0 w-8 translate-x-[50%] -translate-y-[50%] rotate-[25deg] text-mainYellow drop-shadow-lightBlack md:w-12">
                 <CircleIcon />
               </div>
-              <div className="absolute bottom-0 left-0 w-16 -translate-x-[50%] translate-y-[50%] rotate-[5deg] text-mainPink drop-shadow-lightBlack">
+              <div className="absolute bottom-0 left-0 w-12 -translate-x-[50%] translate-y-[50%] rotate-[5deg] text-mainPink drop-shadow-lightBlack md:w-16">
                 <LoveIcon />
               </div>
               <Goals6 />

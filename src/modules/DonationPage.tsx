@@ -11,7 +11,7 @@ import GunFlowerImg from "@/assets/images/gun-flower.png";
 const DonationPage = () => {
   return (
     <div
-      className="z-10 flex h-fit w-full items-center justify-center lg:h-screen lg:pt-20"
+      className="z-10 my-20 flex h-fit w-full items-center justify-center lg:my-0 lg:h-screen lg:pt-20"
       id="donate"
     >
       <div className="flex h-full w-full flex-col-reverse items-center justify-between px-24 lg:flex-row xl:px-40">

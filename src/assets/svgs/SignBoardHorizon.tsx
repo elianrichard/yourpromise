@@ -8,6 +8,8 @@ const SignBoardHorizon = () => {
       fill="none"
       viewBox="0 0 1386 31"
       xmlns="http://www.w3.org/2000/svg"
+      className="h-full w-full"
+      preserveAspectRatio="none"
     >
       <path
         d="M1385.5 30.4915H0.5V0.5H1385.5V30.4915Z"
