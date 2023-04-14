@@ -28,8 +28,6 @@ const CrewCard = ({
   const cardRef = useRef() as MutableRefObject<HTMLDivElement>;
   const isCardInView = useInView(cardRef);
 
-  console.log(name, isCardInView);
-
   return (
     <div
       className="flex w-full select-none flex-col items-center gap-3 sm:w-[200px] lg:w-[300px]"
