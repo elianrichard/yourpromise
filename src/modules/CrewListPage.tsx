@@ -8,6 +8,7 @@ import Sticker4Img from "@/assets/images/stickers/sticker-4.png";
 import Sticker5Img from "@/assets/images/stickers/sticker-5.png";
 
 import CrewImg from "@/assets/images/crews/placeholder.jpg";
+import useWindowDimensions from "@/utils/useViewport";
 
 const CrewCard = ({
   name,
@@ -31,7 +32,7 @@ const CrewCard = ({
             <div className="relative w-full flex-1">
               <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.35)]" />
               <Image
-                src={CrewImg}
+                src={image}
                 alt={name}
                 className="absolute z-0 h-full w-full object-cover"
               />
@@ -58,6 +59,8 @@ const CrewCard = ({
 };
 
 const CrewListPage = () => {
+  const { width } = useWindowDimensions();
+
   return (
     <div className="flex h-fit w-full flex-col items-center justify-center gap-20 py-20 sm:px-10 lg:px-20">
       <div className="relative flex w-full flex-row flex-wrap items-center justify-around gap-y-16">
@@ -65,7 +68,7 @@ const CrewListPage = () => {
           <CrewCard
             name={el.name}
             role={el.role}
-            image={el.image}
+            image={width > 786 ? el.image : CrewImg}
             bio={el.bio}
             key={i}
           />
@@ -104,7 +107,7 @@ const CrewListPage = () => {
           <CrewCard
             name={el.name}
             role={el.role}
-            image={el.image}
+            image={width > 786 ? el.image : CrewImg}
             bio={el.bio}
             key={i}
           />
