@@ -9,20 +9,32 @@ import Sticker5Img from "@/assets/images/stickers/sticker-5.png";
 
 import CrewImg from "@/assets/images/crews/placeholder.jpg";
 import useWindowDimensions from "@/utils/useViewport";
+import { type MutableRefObject, useRef } from "react";
+import { useInView } from "framer-motion";
 
 const CrewCard = ({
   name,
   role,
   image,
   bio,
+  isMobile = false,
 }: {
   name: string;
   role: string;
   image: StaticImageData;
   bio: string;
+  isMobile?: boolean;
 }) => {
+  const cardRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const isCardInView = useInView(cardRef);
+
+  console.log(name, isCardInView);
+
   return (
-    <div className="flex w-full select-none flex-col items-center gap-3 sm:w-[200px] lg:w-[300px]">
+    <div
+      className="flex w-full select-none flex-col items-center gap-3 sm:w-[200px] lg:w-[300px]"
+      ref={cardRef}
+    >
       <div className="flex w-fit justify-center bg-mainYellow/90 py-2 px-3 font-sans text-lg text-black lg:whitespace-nowrap lg:px-5 lg:text-2xl">
         {role}
       </div>
@@ -32,7 +44,7 @@ const CrewCard = ({
             <div className="relative w-full flex-1">
               <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.35)]" />
               <Image
-                src={image}
+                src={isMobile ? (isCardInView ? image : CrewImg) : image}
                 alt={name}
                 className="absolute z-0 h-full w-full object-cover"
               />
@@ -68,7 +80,7 @@ const CrewListPage = () => {
           <CrewCard
             name={el.name}
             role={el.role}
-            image={width > 786 ? el.image : CrewImg}
+            image={el.image}
             bio={el.bio}
             key={i}
           />
@@ -102,14 +114,15 @@ const CrewListPage = () => {
           />
         </div>
       </div>
-      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16">
+      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll px-10 pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16 sm:px-0">
         {crewList.map((el, i) => (
           <CrewCard
             name={el.name}
             role={el.role}
-            image={width > 786 ? el.image : CrewImg}
+            image={el.image}
             bio={el.bio}
             key={i}
+            isMobile={width < 786}
           />
         ))}
       </div>

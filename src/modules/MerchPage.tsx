@@ -3,10 +3,6 @@ import { type MutableRefObject, useEffect, useRef, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 
 import MerchBubble1 from "@/assets/svgs/MerchBubble1";
-import Merch1Img from "@/assets/images/merch/merch-1.png";
-import Merch2Img from "@/assets/images/merch/merch-2.png";
-import Merch3Img from "@/assets/images/merch/merch-3.png";
-
 import EggIcon from "@/assets/svgs/icons/fun/EggIcon";
 import FlowerIcon from "@/assets/svgs/icons/fun/FlowerIcon";
 import TrophyIcon from "@/assets/svgs/icons/TrophyIcon";
@@ -14,6 +10,8 @@ import AtomIcon from "@/assets/svgs/icons/AtomIcon";
 import CalendarIcon from "@/assets/svgs/icons/CalendarIcon";
 import PlanetIcon from "@/assets/svgs/icons/PlanetIcon";
 import PlaneIcon from "@/assets/svgs/icons/PlaneIcon";
+
+import merchLists from "@/static/merch-list";
 
 const MerchCard = ({ images }: { images: Array<StaticImageData> }) => {
   const [imgNumber, setImgNumber] = useState<number>(0);
@@ -78,17 +76,6 @@ const MerchCard = ({ images }: { images: Array<StaticImageData> }) => {
 };
 
 const MerchPage = () => {
-  const MerchImgLists = [
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-    [Merch1Img, Merch2Img, Merch3Img],
-  ];
-
   return (
     <div
       className="flex h-fit w-full items-center justify-center overflow-x-hidden px-5 py-32 sm:px-10 md:px-20"
@@ -128,7 +115,7 @@ const MerchPage = () => {
           <div className="z-0 flex w-full flex-col items-center justify-center gap-10 px-5 py-14">
             <div className="flex h-fit w-full flex-col gap-10 lg:flex-row xl:h-[400px]">
               {/* left content */}
-              <div className="flex flex-[10] flex-col items-center justify-around xl:justify-between">
+              <div className="flex flex-[6] flex-col items-center justify-around xl:justify-between">
                 <div className="z-0 select-none py-10">
                   <div className="relative -rotate-[6deg]">
                     <p className="text-center font-serif text-5xl leading-relaxed text-mainPink md:text-7xl">
@@ -150,7 +137,7 @@ const MerchPage = () => {
                   <div className="h-[200px] lg:w-full">
                     <MerchBubble1 />
                   </div>
-                  <p className="absolute top-1/2 left-1/2 w-full -translate-x-[calc(50%-20px)] -translate-y-[calc(50%+10px)] pl-5 pr-10 text-base md:pl-10 md:pr-14 md:text-xl lg:px-14 xl:px-14 xl:text-2xl 2xl:text-3xl">
+                  <p className="absolute top-1/2 left-1/2 w-full -translate-x-[calc(50%-20px)] -translate-y-[calc(50%+10px)] pl-5 pr-10 text-base md:pl-10 md:pr-14 md:text-lg lg:px-14 xl:px-14 xl:text-xl 2xl:text-2xl">
                     Get your hands on the exclusive{" "}
                     <b>Your Promise Merchandise</b> and be a part of our
                     film-making journey!
@@ -166,8 +153,8 @@ const MerchPage = () => {
                 </div>
               </div>
               {/* right content */}
-              <div className="grid flex-[9] grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4">
-                {MerchImgLists.map((el, i) => (
+              <div className="grid flex-[10] grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4">
+                {merchLists.map((el, i) => (
                   <MerchCard key={i} images={el} />
                 ))}
               </div>
