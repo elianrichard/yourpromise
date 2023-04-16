@@ -48,7 +48,15 @@ const CrewCard = ({
               : "group-hover:[transform:rotateY(180deg)]"
           }`}
         >
-          <div className="absolute z-10 flex h-full w-full flex-col items-end bg-paleWhite px-7 pt-7 opacity-100 shadow-mediumBlack group-hover:[backface-visibility:hidden] sm:px-5 sm:pt-5 lg:px-7 lg:pt-7">
+          <div
+            className={`absolute z-10 flex h-full w-full flex-col items-end bg-paleWhite px-7 pt-7 opacity-100 shadow-mediumBlack transition-opacity duration-[750ms] ease-out sm:px-5 sm:pt-5 lg:px-7 lg:pt-7 ${
+              isMobile
+                ? isOpen
+                  ? "opacity-0 [backface-visibility:hidden]"
+                  : ""
+                : "group-hover:opacity-0 group-hover:[backface-visibility:hidden]"
+            }`}
+          >
             <div className="relative w-full flex-1">
               <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.35)]" />
               <Image
