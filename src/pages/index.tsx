@@ -87,6 +87,24 @@ const Home: NextPage = () => {
         <title>Your Promise CSUN Short Film</title>
         <meta name="description" content="YourPromise Official Website" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <div className="relative z-0 w-screen max-w-[100%]">
         <div className="absolute -z-[1000] h-full w-full opacity-0">
