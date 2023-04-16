@@ -8,7 +8,7 @@ import {
 } from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Waypoint } from "react-waypoint";
 
@@ -25,11 +25,11 @@ import CrewPage from "@/modules/CrewPage";
 import CrewListPage from "@/modules/CrewListPage";
 import MerchPage from "@/modules/MerchPage";
 import MailPage from "@/modules/MailPage";
-import BTSPage from "@/modules/BTSPage";
+// import BTSPage from "@/modules/BTSPage";
 
-// const BTSPage = dynamic(() => import("@/modules/BTSPage"), {
-//   ssr: false,
-// });
+const BTSPage = dynamic(() => import("@/modules/BTSPage"), {
+  ssr: false,
+});
 
 const PageBreak = ({
   setCurrentSection,
@@ -64,8 +64,9 @@ const Home: NextPage = () => {
   const isHomeInView = useInView(homeRef);
 
   useEffect(() => {
-    const scroll = setTimeout(() => window.scrollTo(0, 0), 200);
-    return () => clearTimeout(scroll);
+    window.scrollTo(0, 0);
+    // const scroll = setTimeout(() => window.scrollTo(0, 0), 200);
+    // return () => clearTimeout(scroll);
   }, []);
 
   useEffect(() => {

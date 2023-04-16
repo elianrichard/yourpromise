@@ -18,5 +18,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  swcMinify: true,
+  images: {
+    domains: ["robohash.org"],
+  },
 };
 export default config;

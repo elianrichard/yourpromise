@@ -7,9 +7,8 @@ import Sticker3Img from "@/assets/images/stickers/sticker-3.png";
 import Sticker4Img from "@/assets/images/stickers/sticker-4.png";
 import Sticker5Img from "@/assets/images/stickers/sticker-5.png";
 
-import CrewImg from "@/assets/images/crews/placeholder.jpg";
 import useWindowDimensions from "@/utils/useViewport";
-import { type MutableRefObject, useRef } from "react";
+import { type MutableRefObject, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 const CrewCard = ({
@@ -21,29 +20,47 @@ const CrewCard = ({
 }: {
   name: string;
   role: string;
-  image: StaticImageData;
+  image: string | StaticImageData;
   bio: string;
   isMobile?: boolean;
 }) => {
   const cardRef = useRef() as MutableRefObject<HTMLDivElement>;
   const isCardInView = useInView(cardRef);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  // console.log(isCardInView, name);
 
   return (
     <div
       className="flex w-full select-none flex-col items-center gap-3 sm:w-[200px] lg:w-[300px]"
       ref={cardRef}
+      onClick={() => isMobile && setIsOpen((isOpen) => !isOpen)}
     >
       <div className="flex w-fit justify-center bg-mainYellow/90 py-2 px-3 font-sans text-lg text-black lg:whitespace-nowrap lg:px-5 lg:text-2xl">
         {role}
       </div>
       <div className="group z-0 aspect-[7/10] w-[300px] [perspective:1000px] sm:w-[200px] lg:w-[300px]">
-        <div className="relative z-0 h-full w-full transition-all duration-[750ms] ease-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        <div
+          className={`relative z-0 h-full w-full transition-all duration-[750ms] ease-out [transform-style:preserve-3d] ${
+            isMobile
+              ? isOpen
+                ? "[transform:rotateY(180deg)]"
+                : ""
+              : "group-hover:[transform:rotateY(180deg)]"
+          }`}
+        >
           <div className="absolute z-10 flex h-full w-full flex-col items-end bg-paleWhite px-7 pt-7 opacity-100 shadow-mediumBlack group-hover:[backface-visibility:hidden] sm:px-5 sm:pt-5 lg:px-7 lg:pt-7">
             <div className="relative w-full flex-1">
               <div className="absolute z-10 h-full w-full shadow-[inset_0px_4px_20px_rgba(0,0,0,0.35)]" />
               <Image
-                src={isMobile ? (isCardInView ? image : CrewImg) : image}
+                src={
+                  isMobile
+                    ? isCardInView
+                      ? image
+                      : "/crews/placeholder.jpg"
+                    : image
+                }
                 alt={name}
+                fill
                 className="absolute z-0 h-full w-full object-cover"
               />
             </div>
@@ -112,7 +129,7 @@ const CrewListPage = () => {
           />
         </div>
       </div>
-      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll px-10 pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16 sm:px-0">
+      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll px-5 pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16 sm:px-0">
         {crewList.map((el, i) => (
           <CrewCard
             name={el.name}
