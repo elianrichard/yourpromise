@@ -1,4 +1,14 @@
 import Image, { type StaticImageData } from "next/image";
+import {
+  type MutableRefObject,
+  useRef,
+  useState,
+  useMemo,
+  useEffect,
+} from "react";
+import { motion, useInView } from "framer-motion";
+import _ from "lodash";
+
 import { headList, crewList } from "@/static/crew-list";
 
 import Sticker1Img from "@/assets/images/stickers/sticker-1.png";
@@ -8,8 +18,6 @@ import Sticker4Img from "@/assets/images/stickers/sticker-4.png";
 import Sticker5Img from "@/assets/images/stickers/sticker-5.png";
 
 import useWindowDimensions from "@/utils/useViewport";
-import { type MutableRefObject, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 const CrewCard = ({
   name,
@@ -27,13 +35,25 @@ const CrewCard = ({
   const cardRef = useRef() as MutableRefObject<HTMLDivElement>;
   const isCardInView = useInView(cardRef);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isHover, setIsHover] = useState<boolean>(false);
   // console.log(isCardInView, name);
 
+  const debounceSelected = useMemo(
+    () => _.debounce((i: boolean) => setIsHover(i), 200),
+    []
+  );
+
+  useEffect(() => {
+    return () => debounceSelected.cancel();
+  }, [debounceSelected]);
+
   return (
-    <div
+    <motion.div
       className="flex w-full select-none flex-col items-center gap-3 sm:w-[200px] lg:w-[300px]"
       ref={cardRef}
       onClick={() => isMobile && setIsOpen((isOpen) => !isOpen)}
+      onHoverStart={() => !isMobile && debounceSelected(true)}
+      onHoverEnd={() => !isMobile && debounceSelected(false)}
     >
       <div className="flex w-fit justify-center bg-mainYellow/90 py-2 px-3 font-sans text-lg text-black lg:whitespace-nowrap lg:px-5 lg:text-2xl">
         {role}
@@ -45,7 +65,9 @@ const CrewCard = ({
               ? isOpen
                 ? "[transform:rotateY(180deg)]"
                 : ""
-              : "group-hover:[transform:rotateY(180deg)]"
+              : isHover
+              ? "[transform:rotateY(180deg)]"
+              : ""
           }`}
         >
           <div
@@ -54,7 +76,9 @@ const CrewCard = ({
                 ? isOpen
                   ? "opacity-0 [backface-visibility:hidden]"
                   : ""
-                : "group-hover:opacity-0 group-hover:[backface-visibility:hidden]"
+                : isHover
+                ? "opacity-0 [backface-visibility:hidden]"
+                : ""
             }`}
           >
             <div className="relative w-full flex-1">
@@ -89,7 +113,7 @@ const CrewCard = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -106,6 +130,7 @@ const CrewListPage = () => {
             image={el.image}
             bio={el.bio}
             key={i}
+            isMobile={width < 786}
           />
         ))}
         {/* DECORATION */}
