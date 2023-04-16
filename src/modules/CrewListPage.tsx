@@ -162,7 +162,7 @@ const CrewListPage = () => {
           />
         </div>
       </div>
-      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll px-5 pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16 sm:px-0">
+      <div className="custom-scrollbar flex w-full gap-x-10 overflow-x-scroll px-5 pb-10 sm:flex-wrap sm:justify-around sm:gap-y-16 sm:px-0 sm:scrollbar-hide">
         {crewList.map((el, i) => (
           <CrewCard
             name={el.name}
