@@ -12,6 +12,7 @@ import PlanetIcon from "@/assets/svgs/icons/PlanetIcon";
 import PlaneIcon from "@/assets/svgs/icons/PlaneIcon";
 
 import merchLists from "@/static/merch-list";
+import trackEvents from "@/utils/trackEvents";
 
 const MerchCard = ({ images }: { images: Array<StaticImageData> }) => {
   const [imgNumber, setImgNumber] = useState<number>(0);
@@ -160,14 +161,18 @@ const MerchPage = () => {
               </div>
             </div>
             <div className="relative flex w-fit items-center justify-center">
-              <a
-                href="https://www.instagram.com/yourpromisefilm/"
-                target="_blank"
-                rel="noreferrer"
+              <div
+                onClick={() => {
+                  trackEvents("merch_click");
+                  window.open(
+                    "https://www.instagram.com/yourpromisefilm/",
+                    "_blank"
+                  );
+                }}
                 className="flex cursor-pointer justify-center rounded-xl border-4 border-solid border-mainPink bg-secondaryYellow px-10 py-2 text-xl font-bold shadow-lightBlack transition-all duration-200 ease-out hover:px-16 md:text-3xl"
               >
                 SHOP NOW!
-              </a>
+              </div>
             </div>
           </div>
         </div>

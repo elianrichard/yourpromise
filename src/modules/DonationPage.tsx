@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+import trackEvents from "@/utils/trackEvents";
+
 import DonationPaper1 from "@/assets/svgs/DonationPaper1";
 import DonationPaper2 from "@/assets/svgs/DonationPaper2";
 import DonationPaper3 from "@/assets/svgs/DonationPaper3";
@@ -78,17 +80,22 @@ const DonationPage = () => {
               Corporation.
             </p>
           </motion.div>
-          <motion.a
+          <motion.div
             className="w-[350px] cursor-pointer sm:w-[450px] md:w-[300px] lg:w-[400px] 2xl:w-[475px]"
             whileHover={{
               scale: 1.1,
               transition: { type: "spring", bounce: 0.6 },
             }}
-            href="https://csunfunder.csun.edu/project/36190"
-            target={"_blank"}
+            onClick={() => {
+              trackEvents("local_donate_click");
+              window.open(
+                "https://csunfunder.csun.edu/project/36190",
+                "_blank"
+              );
+            }}
           >
             <DonationWallet2 />
-          </motion.a>
+          </motion.div>
         </div>
         {/* RIGHT DECORATION */}
         <div className="mb-10 flex h-full flex-col items-center justify-center gap-10 md:flex-row md:gap-40 lg:mb-0 lg:flex-col lg:gap-0">
@@ -111,14 +118,19 @@ const DonationPage = () => {
               donation!
             </p>
           </motion.div>
-          <motion.a
+          <motion.div
             className="relative flex h-48 w-36 cursor-pointer flex-col items-center justify-center gap-3 font-serif lg:h-80 xl:w-40 xl:gap-6"
             whileHover={{
               scale: 1.05,
               transition: { type: "spring", bounce: 0.6 },
             }}
-            href="https://engage.csun.edu/your_promise_intl"
-            target={"_blank"}
+            onClick={() => {
+              trackEvents("international_donate_click");
+              window.open(
+                "https://engage.csun.edu/your_promise_intl",
+                "_blank"
+              );
+            }}
           >
             <div className="absolute top-1/2 left-1/2 -z-10 w-64 -translate-y-[calc(50%+15px)] -translate-x-[calc(50%-20px)] xl:w-80">
               <DonationPaper2 />
@@ -134,7 +146,7 @@ const DonationPage = () => {
                 your_promise_intl
               </span>
             </p>
-          </motion.a>
+          </motion.div>
         </div>
       </div>
     </div>

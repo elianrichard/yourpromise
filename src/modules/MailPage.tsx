@@ -3,6 +3,7 @@ import MailBack from "@/assets/svgs/MailBack";
 import MailFront from "@/assets/svgs/MailFront";
 import BalloonSticker from "@/assets/images/stickers/sticker-6.png";
 import GunFlowerSticker from "@/assets/images/gun-flower-2.png";
+import trackEvents from "@/utils/trackEvents";
 
 const MailPage = () => {
   return (
@@ -10,11 +11,12 @@ const MailPage = () => {
       className="flex h-[100vh] w-full items-center justify-center px-10 md:px-20"
       id="contact"
     >
-      <a
+      <div
         className="group relative w-full cursor-pointer md:w-[700px]"
-        href="https://forms.gle/UgM3tmLLVTy5krg98"
-        target="_blank"
-        rel="noreferrer"
+        onClick={() => {
+          trackEvents("contact_click");
+          window.open("https://forms.gle/UgM3tmLLVTy5krg98", "_blank");
+        }}
       >
         <MailBack />
         <div className="absolute bottom-1/2 left-1/2 flex h-full w-[75%] -translate-x-1/2 translate-y-[calc(50%-10px)] flex-col gap-20 rounded-md bg-[#EDFAD6] shadow-lightBlack transition-all duration-300 ease-out group-hover:translate-y-[calc(50%-30px)] sm:h-[300px] md:h-[400px]">
@@ -34,7 +36,7 @@ const MailPage = () => {
         <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2">
           <MailFront />
         </div>
-      </a>
+      </div>
     </div>
   );
 };
