@@ -11,7 +11,7 @@ import { type StaticImageData } from "next/image";
 import Image from "next/image";
 import SugarImgs from "@/static/sugar-bts";
 
-const ImageCard = ({ image }: { image: StaticImageData }) => {
+const ImageCard = ({ image }: { image: StaticImageData | string }) => {
   return (
     <div className="flex h-full w-52 flex-col md:w-72">
       <div className="flex w-full justify-between py-1 md:py-3">
@@ -27,6 +27,8 @@ const ImageCard = ({ image }: { image: StaticImageData }) => {
         <Image
           src={image}
           alt="yourpromise bts image"
+          fill
+          sizes="300px"
           className="absolute top-0 left-0 h-full w-full object-cover"
         />
       </motion.div>

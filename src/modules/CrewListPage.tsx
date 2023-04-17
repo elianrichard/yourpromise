@@ -93,6 +93,7 @@ const CrewCard = ({
                 }
                 alt={name}
                 fill
+                sizes={"250px"}
                 className="absolute z-0 h-full w-full object-cover"
               />
             </div>

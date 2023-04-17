@@ -46,7 +46,7 @@ const CrewPage = () => {
       className="relative flex h-fit max-w-full select-none items-center justify-center overflow-hidden py-40 px-4 sm:px-10 md:px-20"
       id="crew"
     >
-      <div className="relative h-fit w-full rotate-[2deg] bg-black text-black md:aspect-[16/9] lg:w-[800px] xl:h-[550px] xl:w-[1000px] ">
+      <div className="relative h-fit w-full rotate-[2deg] text-black md:aspect-[16/9] lg:w-[800px] xl:h-[550px] xl:w-[1000px] ">
         <Decoration />
         <motion.div
           className="relative flex h-full w-full flex-col bg-paleWhite px-5 pt-5 shadow-heavyBlack md:px-8 md:pt-8"
