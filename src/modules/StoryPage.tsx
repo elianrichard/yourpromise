@@ -177,30 +177,30 @@ const StoryPage = () => {
       {/* END FLOATING TEXT */}
 
       <div
-        className="mty-[50vh] relative flex w-full flex-col gap-[100vh]"
+        className="relative flex w-full flex-col gap-[100vh]"
         // style={{ backgroundColor: "rgb(22, 163, 74)" }} // UNCOMMENT TO DEBUG
         ref={paragraphAll}
         id="story"
       >
         <div
-          className="h-[200vh] w-full"
+          className="h-[150vh] w-full sm:h-[200vh]"
           // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
           ref={paragraphOne}
         />
 
         <div
-          className="flex w-full flex-col gap-[100vh]"
+          className="flex w-full flex-col gap-[50vh] sm:gap-[100vh]"
           // style={{ backgroundColor: "rgb(37, 99, 235)" }} // UNCOMMENT TO DEBUG
           ref={paragraphTwoThree}
         >
           <div
-            className="h-[200vh] w-full"
+            className="h-[150vh] w-full sm:h-[200vh]"
             // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
             ref={paragraphTwo}
           />
 
           <div
-            className="h-[200vh] w-full"
+            className="h-[150vh] w-full sm:h-[200vh]"
             // style={{ backgroundColor: "rgb(220, 38, 38)" }} // UNCOMMENT TO DEBUG
             ref={paragraphThree}
           />
