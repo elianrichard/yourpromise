@@ -172,7 +172,7 @@ const Home: NextPage = () => {
             <div className="flex w-full justify-center gap-1 py-20 text-center text-xl">
               <a
                 href="https://www.behance.net/gabriellepontoh"
-                className="text-mainLime underline"
+                className="text-mainYellow underline"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -181,7 +181,7 @@ const Home: NextPage = () => {
               and{" "}
               <a
                 href="https://hrefid.com/linktree"
-                className="text-mainLime underline"
+                className="text-mainYellow underline"
                 target="_blank"
                 rel="noreferrer noopener"
               >
