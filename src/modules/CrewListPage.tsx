@@ -175,6 +175,15 @@ const CrewListPage = () => {
           />
         ))}
       </div>
+      <div>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeeTVbHxqDEn0btBNEJ6FXMMiVob-hTB9nJg5THfiw30_7rRQ/viewform?usp=sf_link"
+          target="_blank"
+          className="rounded-lg border-4 border-solid border-mainPink bg-mainLime px-10 py-2 text-xl font-semibold text-mainPink shadow-mediumBlack duration-200 ease-out hover:scale-110 md:text-3xl"
+        >
+          Be Part of Our Crew!
+        </a>
+      </div>
     </div>
   );
 };
