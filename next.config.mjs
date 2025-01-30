@@ -19,5 +19,8 @@ const config = {
     defaultLocale: "en",
   },
   swcMinify: true,
+  images: {
+    unoptimized: true,
+  },
 };
 export default config;
